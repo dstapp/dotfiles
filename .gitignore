@@ -1,0 +1,16 @@
+# Ignore everything
+*
+
+# But not these files...
+!.vim
+!.gitignore
+!.aliases
+!.bash_profile
+!.bash_prompt
+!.bashrc
+!.vimrc
+!.zshrc
+!README.md
+
+# ...even if they are in subdirectories
+#!*/
