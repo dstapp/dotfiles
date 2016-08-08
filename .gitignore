@@ -12,6 +12,8 @@
 !.vimrc
 !.zshrc
 !README.md
+!.gitmodules
+!.gitignore
 
 # ...even if they are in subdirectories
 #!*/
