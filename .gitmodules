@@ -50,3 +50,6 @@
 [submodule "/Users/davd/.vim/bundle/vim-go"]
         path = /Users/davd/.vim/bundle/vim-go
         url = https://github.com/fatih/vim-go.git
+[submodule ".vim/bundle/php.vim"]
+	path = .vim/bundle/php.vim
+	url = https://github.com/StanAngeloff/php.vim.git
