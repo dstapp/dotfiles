@@ -9,7 +9,14 @@ syntax on
 filetype plugin indent on
 
 " Colorscheme see https://github.com/hukl/Smyck-Color-Scheme
-color smyck
+" color smyck
+"colorscheme base16-default-light
+"let base16colorspace=256
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Add line numbers
 set number
@@ -85,9 +92,24 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.exe$\|\.so$\|\.dll\|\.beam$\|\.DS_Store$'
   \ }
 
+" ctrlp remove file limit - may get slow on large projects
+let g:ctrlp_max_files=0
+
+" ctrlp open in tabs by default
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" airline: only use this if powerline fonts are installed
+let g:airline_powerline_fonts=1
+let g:Powerline_symbols = 'unicode'
+
+let g:airline_theme='base16'
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -127,3 +149,4 @@ augroup phpSyntaxOverride
     autocmd!
     autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
