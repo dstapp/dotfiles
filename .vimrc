@@ -1,4 +1,4 @@
-set nocompatible
+" set nocompatible
 
 " Initialize Pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
