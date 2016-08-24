@@ -8,15 +8,9 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-" Colorscheme see https://github.com/hukl/Smyck-Color-Scheme
-" color smyck
-"colorscheme base16-default-light
-"let base16colorspace=256
-
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+" Set Design
+let base16colorspace=256
+colorscheme base16-default-dark
 
 " Add line numbers
 set number
@@ -55,7 +49,8 @@ set hlsearch
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " Highlight characters behind the 80 chars margin
-:au BufWinEnter * let w:m2=matchadd('ColumnMargin', '\%>80v.\+', -1)
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 " Disable code folding
 set nofoldenable
@@ -131,7 +126,7 @@ nnoremap <S-C-Left> :tabprevious<CR>
 nnoremap <S-C-Right> :tabnext<CR>
 
 " open nerdtree selection in new tab
-" let NERDTreeMapOpenInTab='<ENTER>'
+let g:NERDTreeMapOpenInTab='<ENTER>'
 
 " close vim if nerdtree is the only left window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -150,3 +145,4 @@ augroup phpSyntaxOverride
     autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+:set mouse=a
