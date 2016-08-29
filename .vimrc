@@ -61,7 +61,7 @@ set directory=~/.vimbackup
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
-map <Leader>n :NERDTreeToggle<CR>
+" map <Leader>n :NERDTreeToggle<CR>
 
 " make uses real tabs
 au FileType make set noexpandtab
@@ -119,7 +119,7 @@ autocmd BufEnter * lcd %:p:h
 
 " nerdree open on start
 " autocmd vimenter * NERDTree
-autocmd vimenter * NERDTreeTabsOpen
+" autocmd vimenter * NERDTreeTabsOpen
 
 " nerdtree on ctrl+n
 map <C-n> :NERDTreeToggle<CR>
@@ -129,14 +129,14 @@ nnoremap <S-C-Left> :tabprevious<CR>
 nnoremap <S-C-Right> :tabnext<CR>
 
 " open nerdtree selection in new tab
-let g:NERDTreeMapOpenInTab='<ENTER>'
+" let g:NERDTreeMapOpenInTab='<ENTER>'
 
 " close vim if nerdtree is the only left window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " nerdtree open on startup
-let g:nerdtree_tabs_open_on_console_startup=1
-let g:nerdtree_tabs_smart_startup_focus=2
+" let g:nerdtree_tabs_open_on_console_startup=1
+" let g:nerdtree_tabs_smart_startup_focus=2
 
 function! PhpSyntaxOverride()
     hi! def link phpDocTags  phpDefine
