@@ -3,7 +3,8 @@
 
 # But not these files...
 !.zsh
-!.vim
+!.vim/bundle
+!.vim/colors
 !.gitignore
 !.aliases
 !.bash_profile
