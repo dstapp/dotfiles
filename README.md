@@ -7,20 +7,9 @@ Collection of various config files for macOS (tested 10.10 - 10.12)
 
 ```
 cd ~/
-git init
-git remote add origin https://github.com/dprandzioch/dotfiles.git
-git branch --set-upstream-to=origin/master
-git pull
-```
-
-# VIM
-
-VIM uses various submodules, so you have to initialize them after checkout:
-
-```
-cd ~/
-git submodule init
-git submodule update
+git clone https://github.com/dprandzioch/dotfiles.git
+cd dotfiles/
+./setup.sh
 ```
 
 # Brewfile
@@ -39,6 +28,6 @@ file but homebrew is required.
 ## Install apps
 
 ```
-cd ~/
+cd ~/dotfiles
 brew bundle
 ```
