@@ -149,3 +149,5 @@ augroup phpSyntaxOverride
 augroup END
 
 :set mouse=a
+
+let g:used_javascript_libs = 'jquery,angularjs,angularui,angularuirouter,jasmine'
