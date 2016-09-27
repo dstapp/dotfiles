@@ -10,7 +10,7 @@ filetype plugin indent on
 
 " Set Design
 let base16colorspace=256
-colorscheme base16-base-dark
+colorscheme base16-default-dark
 
 " Add line numbers
 set number
