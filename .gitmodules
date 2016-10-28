@@ -104,3 +104,6 @@
 [submodule ".vim/bundle/vim-angular"]
 	path = .vim/bundle/vim-angular
 	url = git://github.com/burnettk/vim-angular.git
+[submodule "tmux"]
+	path = tmux
+	url = https://github.com/gpakosz/.tmux.git

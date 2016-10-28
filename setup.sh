@@ -11,5 +11,7 @@ ln -sf $DIR/.vimrc            $HOME/.vimrc
 ln -sf $DIR/.vimrc_background $HOME/.vimrc_background
 ln -sf $DIR/.zsh              $HOME/.zsh
 ln -sf $DIR/.zshrc            $HOME/.zshrc
+ln -sf $DIR/tmux/.tmux.conf   $HOME/.tmux.conf
+ln -sf $DIR/.tmux.conf.local  $HOME/.tmux.conf.local
 
-mkdir $HOME/.vimbackup
+[ -d $HOME/.vimbackup ] || mkdir $HOME/.vimbackup
