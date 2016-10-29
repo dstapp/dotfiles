@@ -109,4 +109,4 @@
 	url = https://github.com/gpakosz/.tmux.git
 [submodule "powerline-fonts"]
 	path = powerline-fonts
-	url = https://github.com/powerline/fonts
+	url = https://github.com/powerline/fonts.git
