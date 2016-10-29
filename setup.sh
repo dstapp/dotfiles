@@ -5,6 +5,8 @@ DIR=${0:a:h}
 git submodule init
 git submodule update
 
+$DIR/powerline-fonts/install.sh
+
 ln -sf $DIR/.config           $HOME/.config
 ln -sf $DIR/.vim              $HOME/.vim
 ln -sf $DIR/.vimrc            $HOME/.vimrc
