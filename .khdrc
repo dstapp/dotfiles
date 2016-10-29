@@ -20,13 +20,14 @@ cmd + alt + ctrl - q     :    /usr/local/bin/kwmc quit
 cmd - return             :    open -na /Applications/iTerm2.app
 
 # Give Focus To Window
-cmd + alt - h            :    /usr/local/bin/kwmc window -f west
-cmd + alt - l            :    /usr/local/bin/kwmc window -f east
-cmd + alt - j            :    /usr/local/bin/kwmc window -f south
-cmd + alt - k            :    /usr/local/bin/kwmc window -f north
+ctrl + alt - left         :    /usr/local/bin/kwmc window -f west
+ctrl + alt - right        :    /usr/local/bin/kwmc window -f east
+ctrl + alt - down         :    /usr/local/bin/kwmc window -f south
+ctrl + alt - up           :    /usr/local/bin/kwmc window -f north
 
-cmd + alt - n            :    /usr/local/bin/kwmc window -fm prev
-cmd + alt - m            :    /usr/local/bin/kwmc window -fm next
+# Give focus to next/last window
+ctrl + alt - n            :    /usr/local/bin/kwmc window -fm prev
+ctrl + alt - m            :    /usr/local/bin/kwmc window -fm next
 
 # Give Focus To Screen
 cmd + alt - 1            :    /usr/local/bin/kwmc display -f 0
