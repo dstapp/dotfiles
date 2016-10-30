@@ -46,66 +46,13 @@ ctrl + alt + cmd - n     :    /usr/local/bin/kwmc window -m space left
 ctrl + alt + cmd - m     :    /usr/local/bin/kwmc window -m space right
 
 # reload khd
-ctrl + alt + cmd - r     :    /usr/local/bin/khd -e "reload"
-
-# Pseudo containers
-#cmd + ctrl + alt - p     :    /usr/local/bin/kwmc tree -pseudo create
-#cmd + ctrl + alt - o     :    /usr/local/bin/kwmc tree -pseudo destroy
-#ctrl + alt - p           :    /usr/local/bin/kwmc window -s prev
-#ctrl + alt - n           :    /usr/local/bin/kwmc window -s next
-
-# Detach Focused Window And Reinsert In Direction
-#ctrl + shift - k         :    /usr/local/bin/kwmc window -m north
-#ctrl + shift - l         :    /usr/local/bin/kwmc window -m east
-#ctrl + shift - j         :    /usr/local/bin/kwmc window -m south
-#ctrl + shift - h         :    /usr/local/bin/kwmc window -m west
-
-# Detach Marked Window And Reinsert At Focused Window
-#ctrl + shift - x         :    /usr/local/bin/kwmc window -m mark
-
-# Move Focused Window To Space
-#ctrl + alt - left        :    /usr/local/bin/kwmc window -m space left
-#ctrl + alt - right       :    /usr/local/bin/kwmc window -m space right
-
-# Move Focused Window To Screen
-#ctrl + alt - 1           :    /usr/local/bin/kwmc window -m display 0
-#ctrl + alt - 2           :    /usr/local/bin/kwmc window -m display 1
-#ctrl + alt - 3           :    /usr/local/bin/kwmc window -m display 2
-#ctrl + alt + cmd + n     :    /usr/local/bin/kwmc window -m
-
-# Increase Container Gaps
-#prefix - x               :    /usr/local/bin/kwmc space -g increase horizontal
-#prefix - y               :    /usr/local/bin/kwmc space -g increase vertical
-
-# Decrease Container Gaps
-#prefix + shift - x       :    /usr/local/bin/kwmc space -g decrease horizontal
-#prefix + shift - y       :    /usr/local/bin/kwmc space -g decrease vertical
-
-# Increase Screen Padding
-#prefix - left            :    /usr/local/bin/kwmc space -p increase left
-#prefix - right           :    /usr/local/bin/kwmc space -p increase right
-#prefix - up              :    /usr/local/bin/kwmc space -p increase top
-#prefix - down            :    /usr/local/bin/kwmc space -p increase bottom
-#prefix - p               :    /usr/local/bin/kwmc space -p increase all
-
-# Decrease Screen Padding
-#prefix + shift - left    :    /usr/local/bin/kwmc space -p decrease left
-#prefix + shift - right   :    /usr/local/bin/kwmc space -p decrease right
-#prefix + shift - up      :    /usr/local/bin/kwmc space -p decrease top
-#prefix + shift - down    :    /usr/local/bin/kwmc space -p decrease bottom
-#prefix + shift - p : /usr/local/bin/kwmc space -p decrease all
+ctrl + alt - r           :    /usr/local/bin/khd -e "reload"
 
 # Set Space Tiling Mode To BSP
-#cmd + ctrl - a           :    /usr/local/bin/kwmc space -t bsp
-
-# Set Space Tiling Mode To Monocle
-#cmd + ctrl - s           :    /usr/local/bin/kwmc space -t monocle
-
-# Set Space Tiling Mode To Floating
-#cmd + ctrl - d           :    /usr/local/bin/kwmc space -t float
+cmd + ctrl - a           :    /usr/local/bin/kwmc space -t bsp
 
 # Rotate Window-Tree By 90degrees (Clockwise)
-#cmd + ctrl - r           :    /usr/local/bin/kwmc tree rotate 90
+ctrl + alt + cmd - r     :    /usr/local/bin/kwmc tree rotate 90
 
 # Modify Container
 #prefix - s               :    /usr/local/bin/kwmc window -c split-mode toggle
@@ -122,14 +69,4 @@ ctrl + alt + cmd - r     :    /usr/local/bin/khd -e "reload"
 #prefix + shift - l       :    /usr/local/bin/kwmc window -c reduce 0.05 east
 
 # Set Temporary Window Container
-#prefix - f               :    /usr/local/bin/kwmc window -z fullscreen
-#prefix - d               :    /usr/local/bin/kwmc window -z parent
-#prefix - w               :    /usr/local/bin/kwmc window -t focused
-
-# Mark Window
-#cmd + alt + ctrl - m     :    /usr/local/bin/kwmc window -mk focused
-#cmd + alt + ctrl - h     :    /usr/local/bin/kwmc window -mk west wrap
-#cmd + alt + ctrl - l     :    /usr/local/bin/kwmc window -mk east wrap
-#cmd + alt + ctrl - j     :    /usr/local/bin/kwmc window -mk south wrap
-#cmd + alt + ctrl - k     :    /usr/local/bin/kwmc window -mk north wrap
-
+ctrl + alt + cmd - f     :    /usr/local/bin/kwmc window -z fullscreen
