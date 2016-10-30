@@ -70,3 +70,4 @@ ctrl + alt + cmd - r     :    /usr/local/bin/kwmc tree rotate 90
 
 # Set Temporary Window Container
 ctrl + alt + cmd - f     :    /usr/local/bin/kwmc window -z fullscreen
+ctrl + alt + cmd - space :    /usr/local/bin/kwmc window -t focused
