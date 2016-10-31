@@ -30,9 +30,9 @@ ctrl + alt - n            :    /usr/local/bin/kwmc window -fm prev
 ctrl + alt - m            :    /usr/local/bin/kwmc window -fm next
 
 # Give Focus To Screen
-cmd + alt - 1            :    /usr/local/bin/kwmc display -f 0
-cmd + alt - 2            :    /usr/local/bin/kwmc display -f 1
-cmd + alt - 3            :    /usr/local/bin/kwmc display -f 2
+ctrl + alt - 1            :    /usr/local/bin/kwmc display -f 0
+ctrl + alt - 2            :    /usr/local/bin/kwmc display -f 1
+ctrl + alt - 3            :    /usr/local/bin/kwmc display -f 2
 
 # Swap Focused Window
 ctrl + alt + cmd - left  :    /usr/local/bin/kwmc window -s west
@@ -41,9 +41,9 @@ ctrl + alt + cmd - up    :    /usr/local/bin/kwmc window -s north
 ctrl + alt + cmd - right :    /usr/local/bin/kwmc window -s east
 #ctrl + alt + cmd - m     :    /usr/local/bin/kwmc window -s mark
 
-# Move window between screens
-ctrl + alt + cmd - n     :    /usr/local/bin/kwmc window -m space left
-ctrl + alt + cmd - m     :    /usr/local/bin/kwmc window -m space right
+# Move window between displays
+#ctrl + alt + cmd - n     :    /usr/local/bin/kwmc window -m display prev
+ctrl + alt + cmd - n     :    /usr/local/bin/kwmc window -m display next
 
 # reload khd
 ctrl + alt - r           :    /usr/local/bin/khd -e "reload"
