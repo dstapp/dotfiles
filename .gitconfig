@@ -18,3 +18,5 @@
   dump = "cat-file -p"
   aa = "add -A"
   pa = "push origin --all"
+  di = diff
+  dc = "diff --cached"
