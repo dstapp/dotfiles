@@ -16,5 +16,5 @@
   h = "log --pretty=format:'%h - %s%d (%ar) <%an>' --graph --date=short"
   type = "cat-file -t"
   dump = "cat-file -p"
-  aa = "add --A"
+  aa = "add -A"
   pa = "push origin --all"

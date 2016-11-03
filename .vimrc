@@ -70,7 +70,7 @@ au FileType make set noexpandtab
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
 " add json syntax highlighting
-au BufNewFile,BufRead *.json set ft=javascript
+" au BufNewFile,BufRead *.json set ft=javascript
 
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
@@ -149,5 +149,6 @@ augroup phpSyntaxOverride
 augroup END
 
 :set mouse=a
+:set cursorline
 
 let g:used_javascript_libs = 'jquery,angularjs,angularui,angularuirouter,jasmine'
