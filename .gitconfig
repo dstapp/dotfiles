@@ -1,0 +1,19 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = David Prandzioch
+	email = hello@davd.eu
+#[url "https://"]
+#	insteadOf = git://
+#[url "git://"]
+#	insteadOf = https://
+
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  h = "log --pretty=format:'%h - %s%d (%ar) <%an>' --graph --date=short"
+  type = "cat-file -t"
+  dump = "cat-file -p"
+  aa = "add --A"

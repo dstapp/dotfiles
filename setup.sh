@@ -17,5 +17,6 @@ ln -sf $DIR/tmux/.tmux.conf   $HOME/.tmux.conf
 ln -sf $DIR/.tmux.conf.local  $HOME/.tmux.conf.local
 ln -sf $DIR/.khdrc            $HOME/.khdrc
 ln -sf $DIR/.kwm              $HOME/.kwm
+ln -sf $DIR/.gitconfig        $HOME/.gitconfig
 
 [ -d $HOME/.vimbackup ] || mkdir $HOME/.vimbackup

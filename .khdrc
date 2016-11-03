@@ -18,6 +18,7 @@ cmd + alt + ctrl - q     :    /usr/local/bin/kwmc quit
 
 # Launch iTerm2
 cmd - return             :    open -na /Applications/iTerm2.app
+shift + cmd - return     :    open -na /Applications/Chromium.app
 
 # Give Focus To Window
 ctrl + alt - left         :    /usr/local/bin/kwmc window -f west
