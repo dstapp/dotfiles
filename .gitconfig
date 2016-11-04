@@ -20,3 +20,4 @@
   pa = "push origin --all"
   di = diff
   dc = "diff --cached"
+  p = "pull origin"

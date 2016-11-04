@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 DIR=${0:a:h}
 
 git submodule init
@@ -18,5 +20,7 @@ ln -sf $DIR/.tmux.conf.local  $HOME/.tmux.conf.local
 ln -sf $DIR/.khdrc            $HOME/.khdrc
 ln -sf $DIR/.kwm              $HOME/.kwm
 ln -sf $DIR/.gitconfig        $HOME/.gitconfig
+
+cd ~/.vim/bundle/command-t && rake make
 
 [ -d $HOME/.vimbackup ] || mkdir $HOME/.vimbackup

@@ -25,6 +25,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+let mapleader=","
 
 " Show trailing spaces and highlight hard tabs
 set list listchars=tab:»·,trail:·
