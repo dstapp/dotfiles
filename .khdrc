@@ -40,10 +40,8 @@ ctrl + alt + cmd - left  :    /usr/local/bin/kwmc window -s west
 ctrl + alt + cmd - down  :    /usr/local/bin/kwmc window -s south
 ctrl + alt + cmd - up    :    /usr/local/bin/kwmc window -s north
 ctrl + alt + cmd - right :    /usr/local/bin/kwmc window -s east
-#ctrl + alt + cmd - m     :    /usr/local/bin/kwmc window -s mark
 
 # Move window between displays
-#ctrl + alt + cmd - n     :    /usr/local/bin/kwmc window -m display prev
 ctrl + alt + cmd - n     :    /usr/local/bin/kwmc window -m display next
 
 # reload khd
@@ -54,20 +52,6 @@ cmd + ctrl - a           :    /usr/local/bin/kwmc space -t bsp
 
 # Rotate Window-Tree By 90degrees (Clockwise)
 ctrl + alt + cmd - r     :    /usr/local/bin/kwmc tree rotate 90
-
-# Modify Container
-#prefix - s               :    /usr/local/bin/kwmc window -c split-mode toggle
-#prefix - 0x32            :    /usr/local/bin/kwmc window -c type toggle
-
-#prefix - h               :    /usr/local/bin/kwmc window -c expand 0.05 west
-#prefix - j               :    /usr/local/bin/kwmc window -c expand 0.05 south
-#prefix - k               :    /usr/local/bin/kwmc window -c expand 0.05 north
-#prefix - l               :    /usr/local/bin/kwmc window -c expand 0.05 east
-
-#prefix + shift - h       :    /usr/local/bin/kwmc window -c reduce 0.05 west
-#prefix + shift - j       :    /usr/local/bin/kwmc window -c reduce 0.05 south
-#prefix + shift - k       :    /usr/local/bin/kwmc window -c reduce 0.05 north
-#prefix + shift - l       :    /usr/local/bin/kwmc window -c reduce 0.05 east
 
 # Set Temporary Window Container
 ctrl + alt + cmd - f     :    /usr/local/bin/kwmc window -z fullscreen
