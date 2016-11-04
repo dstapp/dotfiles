@@ -7,17 +7,9 @@
         path = .vim/bundle/delimitMate
         url = https://github.com/Raimondi/delimitMate.git
 
-[submodule ".vim/bundle/nerdtree"]
-        path = .vim/bundle/nerdtree
-        url = https://github.com/scrooloose/nerdtree.git
-
 [submodule ".vim/bundle/supertab"]
         path = .vim/bundle/supertab
         url = https://github.com/ervandew/supertab.git
-
-[submodule ".vim/bundle/markdown"]
-        path = .vim/bundle/vim-markdown
-        url = https://github.com/tpope/vim-markdown.git
 
 [submodule ".vim/bundle/syntastic"]
         path = .vim/bundle/syntastic
@@ -50,12 +42,6 @@
 [submodule ".vim/bundle/vim-rails"]
 	path = .vim/bundle/vim-rails
 	url = git://github.com/tpope/vim-rails.git
-[submodule ".vim/bundle/vimproc.vim"]
-	path = .vim/bundle/vimproc.vim
-	url = https://github.com/Shougo/vimproc.vim.git
-[submodule ".vim/bundle/unite.vim"]
-	path = .vim/bundle/unite.vim
-	url = https://github.com/Shougo/unite.vim.git
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline
@@ -65,9 +51,6 @@
 [submodule ".vim/bundle/vim-airline-themes"]
 	path = .vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
-[submodule ".vim/bundle/vim-nerdtree-tabs"]
-	path = .vim/bundle/vim-nerdtree-tabs
-	url = https://github.com/jistr/vim-nerdtree-tabs.git
 [submodule ".vim/bundle/base16-vim"]
 	path = .vim/bundle/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
