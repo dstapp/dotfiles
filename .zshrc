@@ -47,6 +47,8 @@ export WORDCHARS='*?[]~&;!$%^<>'
 
 # Highlight search results in ack.
 export ACK_COLOR_MATCH='red'
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
 function mcd() { mkdir -p $1 && cd $1 }
 function cdf() { cd *$1*/ } # stolen from @topfunky
