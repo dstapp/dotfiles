@@ -1,155 +1,343 @@
-" set nocompatible
+" This is Gary Bernhardt's .vimrc file - actually it's davd's but i copied
+" anything from Gary Bernhard :-)
+" vim:set ts=2 sts=2 sw=2 expandtab:
 
-" Initialize Pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+" remove all existing autocmds
+autocmd!
 
-" Enable syntax highlighting
-syntax on
-filetype plugin indent on
+" initialize @tpope, whence all vim plugins come
+call pathogen#incubate()
 
-" Set Design
-let base16colorspace=256
-colorscheme base16-default-dark
-
-" Add line numbers
-set number
-set ruler
-
-" Set encoding
-set encoding=utf-8
-
-" Whitespace stuff
-set nowrap
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BASIC EDITING CONFIGURATION
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+" allow unsaved background buffers and remember marks/undo for them
+set hidden
+" remember more commands and search history
+set history=10000
 set expandtab
-let mapleader=","
-
-" Show trailing spaces and highlight hard tabs
-set list listchars=tab:»·,trail:·
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-" Strip trailing whitespaces on each save
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-
-" Search related settings
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set laststatus=2
+set showmatch
 set incsearch
 set hlsearch
-
-" Map Ctrl+l to clear highlighted searches
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
-" Highlight characters behind the 80 chars margin
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
-
-" Disable code folding
-set nofoldenable
-
-" Directories for swp files
-set backupdir=~/.vimbackup
-set directory=~/.vimbackup
-
-" NERDTree configuration
-let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
-" map <Leader>n :NERDTreeToggle<CR>
-
-" make uses real tabs
-au FileType make set noexpandtab
-
-" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
-
-" add json syntax highlighting
-" au BufNewFile,BufRead *.json set ft=javascript
-
-" make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-
-" php coding standards
-au FileType php set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-
+" make searches case-sensitive only if they contain upper-case characters
+set ignorecase smartcase
+" highlight current line
+set cursorline
+set cmdheight=1
+set switchbuf=useopen
+" Always show tab bar at the top
+set showtabline=2
+set winwidth=79
+" This makes RVM work inside Vim. I have no idea why.
+set shell=bash
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
+" keep more context when scrolling off the end of a buffer
+set scrolloff=3
+" Don't make backups at all
+set nobackup
+set nowritebackup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+" display incomplete commands
+set showcmd
+" Enable highlighting for syntax
+syntax on
+" Enable file type detection.
+" Use the default filetype settings, so that mail gets 'tw' set to 72,
+" 'cindent' is on in C files, etc.
+" Also load indent files, to automatically do language-dependent indenting.
+filetype plugin indent on
+" use emacs-style tab completion when selecting files, etc
+set wildmode=longest,list
+" make tab completion for files/buffers act like bash
+set wildmenu
+let mapleader=","
+" Fix slow O inserts
+:set timeout timeoutlen=1000 ttimeoutlen=100
+" Normally, Vim messes with iskeyword when you open a shell file. This can
+" leak out, polluting other file types even after a 'set ft=' change. This
+" variable prevents the iskeyword change so it can't hurt anyone.
+let g:sh_noisk=1
+" Modelines (comments that set vim options on a per-file basis)
+set modeline
+set modelines=3
+" Turn folding off for real, hopefully
+set foldmethod=manual
+set nofoldenable
+" Insert only one space when joining lines that contain sentence-terminating
+" punctuation like `.`.
+set nojoinspaces
+" If a file is changed outside of vim, automatically reload it without asking
+set autoread
+" Use the old vim regex engine (version 1, as opposed to version 2, which was
+" introduced in Vim 7.3.969). The Ruby syntax highlighting is significantly
+" slower with the new regex engine.
+set re=1
 
-" ctrp custom ignores
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.eunit$',
-  \ 'file': '\.exe$\|\.so$\|\.dll\|\.beam$\|\.DS_Store$'
-  \ }
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CUSTOM AUTOCMDS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup vimrcEx
+  " Clear all autocmds in the group
+  autocmd!
+  autocmd FileType text setlocal textwidth=78
+  " Jump to last cursor position unless it's invalid or in an event handler
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
 
-let g:ctrlp_cmd = 'CtrlPLastMode'
-let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
+  "for ruby, autoindent with two spaces, always expand tabs
+  autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
+  autocmd FileType python set sw=4 sts=4 et
 
-" ctrlp remove file limit - may get slow on large projects
-let g:ctrlp_max_files=0
+  autocmd! BufRead,BufNewFile *.sass setfiletype sass 
 
-" ctrlp open in tabs by default
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
+  autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
+  autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+  " Indent p tags
+  " autocmd FileType html,eruby if g:html_indent_tags !~ '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | endif
 
-" airline: only use this if powerline fonts are installed
-let g:airline_powerline_fonts=1
-let g:Powerline_symbols = 'unicode'
+  " Don't syntax highlight markdown because it's often wrong
+  autocmd! FileType mkd setlocal syn=off
 
-let g:airline_theme='base16'
+  " Leave the return key alone when in command line windows, since it's used
+  " to run commands there.
+  autocmd! CmdwinEnter * :unmap <cr>
+  autocmd! CmdwinLeave * :call MapCR()
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+  " *.md is markdown
+  autocmd! BufNewFile,BufRead *.md setlocal ft=
 
-" Sync nerdtree in current dir
-autocmd BufEnter * lcd %:p:h
-
-" nerdree open on start
-" autocmd vimenter * NERDTree
-" autocmd vimenter * NERDTreeTabsOpen
-
-" nerdtree on ctrl+n
-map <C-n> :NERDTreeToggle<CR>
-
-" vim tab navigation on ctrl+left/right
-nnoremap <S-C-Left> :tabprevious<CR>
-nnoremap <S-C-Right> :tabnext<CR>
-
-" open nerdtree selection in new tab
-" let g:NERDTreeMapOpenInTab='<ENTER>'
-
-" close vim if nerdtree is the only left window
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" nerdtree open on startup
-" let g:nerdtree_tabs_open_on_console_startup=1
-" let g:nerdtree_tabs_smart_startup_focus=2
-
-function! PhpSyntaxOverride()
-    hi! def link phpDocTags  phpDefine
-    hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-    autocmd!
-    autocmd FileType php call PhpSyntaxOverride()
+  " indent slim two spaces, not four
+  autocmd! FileType *.slim set sw=2 sts=2 et
 augroup END
 
-:set mouse=a
-:set cursorline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COLOR
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+:set t_Co=256 " 256 colors
+:set background=dark
+:color grb256
 
-let g:used_javascript_libs = 'jquery,angularjs,angularui,angularuirouter,jasmine'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" STATUS LINE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MISC KEY MAPS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>y "*y
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+" Insert a hash rocket with <c-l>
+imap <c-l> <space>=><space>
+" Can't be bothered to understand ESC vs <c-c> in insert mode
+imap <c-c> <esc>
+nnoremap <leader><leader> <c-^>
+" Close all other windows, open a vertical split, and open this file's test
+" alternate in it.
+nnoremap <leader>s :call FocusOnFile()<cr>
+function! FocusOnFile()
+  tabnew %
+  normal! v
+  normal! l
+  call OpenTestAlternate()
+  normal! h
+endfunction
+" Reload in chrome
+map <leader>l :w\|:silent !reload-chrome<cr>
+" Align selected lines
+vnoremap <leader>ib :!align<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OPEN FILES IN DIRECTORY OF CURRENT FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+cnoremap <expr> %% expand('%:h').'/'
+map <leader>e :edit %%
+map <leader>v :view %%
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPS TO JUMP TO SPECIFIC COMMAND-T TARGETS AND FILES
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>gr :topleft :split config/routes.rb<cr>
+function! ShowRoutes()
+  " Requires 'scratch' plugin
+  :topleft 100 :split __Routes__
+  " Make sure Vim doesn't write __Routes__ as a file
+  :set buftype=nofile
+  " Delete everything
+  :normal 1GdG
+  " Put routes output in buffer
+  :0r! rake -s routes
+  " Size window to number of lines (1 plus rake output length)
+  :exec ":normal " . line("$") . "_ "
+  " Move cursor to bottom
+  :normal 1GG
+  " Delete empty trailing line
+  :normal dd
+endfunction
+map <leader>gR :call ShowRoutes()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SWITCH BETWEEN TEST AND PRODUCTION CODE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! OpenTestAlternate()
+  let new_file = AlternateForCurrentFile()
+  exec ':e ' . new_file
+endfunction
+function! AlternateForCurrentFile()
+  let current_file = expand("%")
+  let new_file = current_file
+  let in_spec = match(current_file, '^spec/') != -1
+  let going_to_spec = !in_spec
+  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1
+  if going_to_spec
+    if in_app
+      let new_file = substitute(new_file, '^app/', '', '')
+    end
+    let new_file = substitute(new_file, '\.e\?rb$', '_spec.rb', '')
+    let new_file = 'spec/' . new_file
+  else
+    let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
+    let new_file = substitute(new_file, '^spec/', '', '')
+    if in_app
+      let new_file = 'app/' . new_file
+    end
+  endif
+  return new_file
+endfunction
+nnoremap <leader>. :call OpenTestAlternate()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OpenChangedFiles COMMAND
+" Open a split for each dirty file in git
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! OpenChangedFiles()
+  only " Close all windows, unless they're modified
+  let status = system('git status -s | grep "^ \?\(M\|A\|UU\)" | sed "s/^.\{3\}//"')
+  let filenames = split(status, "\n")
+  exec "edit " . filenames[0]
+  for filename in filenames[1:]
+    exec "sp " . filename
+  endfor
+endfunction
+command! OpenChangedFiles :call OpenChangedFiles()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" InsertTime COMMAND
+" Insert the current time
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FindConditionals COMMAND
+" Start a search for conditional branches, both implicit and explicit
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! FindConditionals :normal /\<if\>\|\<unless\>\|\<and\>\|\<or\>\|||\|&&<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RemoveFancyCharacters COMMAND
+" Remove smart quotes, etc.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RemoveFancyCharacters()
+    let typo = {}
+    let typo["“"] = '"'
+    let typo["”"] = '"'
+    let typo["‘"] = "'"
+    let typo["’"] = "'"
+    let typo["–"] = '--'
+    let typo["—"] = '---'
+    let typo["…"] = '...'
+    :exe ":%s/".join(keys(typo), '\|').'/\=typo[submatch(0)]/ge'
+endfunction
+command! RemoveFancyCharacters :call RemoveFancyCharacters()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Selecta Mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Run a given vim command on the results of fuzzy selecting from a given shell
+" command. See usage below.
+function! SelectaCommand(choice_command, selecta_args, vim_command)
+  try
+    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+    " Escape spaces in the file name. That ensures that it's a single argument
+    " when concatenated with vim_command and run with exec.
+    let selection = substitute(selection, ' ', '\\ ', "g")
+  catch /Vim:Interrupt/
+    " Swallow the ^C so that the redraw below happens; otherwise there will be
+    " leftovers from selecta on the screen
+    redraw!
+    return
+  endtry
+  redraw!
+  exec a:vim_command . " " . selection
+endfunction
+
+function! SelectaFile(path, glob)
+  call SelectaCommand("find " . a:path . "/* -type f -and -iname '" . a:glob . "' -and -not -iname '*.pyc'", "", ":e")
+endfunction
+
+nnoremap <leader>f :call SelectaFile(".", "*")<cr>
+nnoremap <leader>gv :call SelectaFile("app/views", "*")<cr>
+nnoremap <leader>gc :call SelectaFile("app/controllers", "*")<cr>
+nnoremap <leader>gm :call SelectaFile("app/models", "*")<cr>
+nnoremap <leader>gh :call SelectaFile("app/helpers", "*")<cr>
+nnoremap <leader>gl :call SelectaFile("lib", "*")<cr>
+nnoremap <leader>gp :call SelectaFile("public", "*")<cr>
+nnoremap <leader>gs :call SelectaFile("public/stylesheets", "*.sass")<cr>
+nnoremap <leader>gf :call SelectaFile("features", "*")<cr>
+
+"Fuzzy select
+function! SelectaIdentifier()
+  " Yank the word under the cursor into the z register
+  normal "zyiw
+  " Fuzzy match files in the current directory, starting with the word under
+  " the cursor
+  call SelectaCommand("find * -type f", "-s " . @z, ":e")
+endfunction
+nnoremap <c-g> :call SelectaIdentifier()<cr>

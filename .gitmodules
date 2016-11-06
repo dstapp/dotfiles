@@ -1,59 +1,6 @@
-# Core
 [submodule ".vim/bundle/pathogen"]
         path = .vim/bundle/vim-pathogen
         url = https://github.com/tpope/vim-pathogen.git
-
-[submodule ".vim/bundle/delimitMate"]
-        path = .vim/bundle/delimitMate
-        url = https://github.com/Raimondi/delimitMate.git
-
-[submodule ".vim/bundle/supertab"]
-        path = .vim/bundle/supertab
-        url = https://github.com/ervandew/supertab.git
-
-[submodule ".vim/bundle/syntastic"]
-        path = .vim/bundle/syntastic
-        url = https://github.com/scrooloose/syntastic.git
-
-[submodule ".vim/bundle/vim-javascript-syntax"]
-        path = .vim/bundle/vim-javascript-syntax
-        url = https://github.com/jelera/vim-javascript-syntax.git
-
-[submodule ".vim/bundle/JavaScript-Indent"]
-        path = .vim/bundle/JavaScript-Indent
-        url = https://github.com/vim-scripts/JavaScript-Indent.git
-
-[submodule ".vim/bundle/Dockerfile"]
-        path = .vim/bundle/Dockerfile
-        url = https://github.com/ekalinin/Dockerfile.vim.git
-
-[submodule "/Users/davd/.vim/bundle/vim-go"]
-        path = /Users/davd/.vim/bundle/vim-go
-        url = https://github.com/fatih/vim-go.git
-[submodule ".vim/bundle/php.vim"]
-	path = .vim/bundle/php.vim
-	url = https://github.com/StanAngeloff/php.vim.git
-[submodule ".vim/bundle/vim-ruby"]
-	path = .vim/bundle/vim-ruby
-	url = https://github.com/vim-ruby/vim-ruby.git
-[submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/vim-rails"]
-	path = .vim/bundle/vim-rails
-	url = git://github.com/tpope/vim-rails.git
-[submodule ".vim/bundle/vim-airline"]
-	path = .vim/bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline
-[submodule ".vim/bundle/vim-bufferline"]
-	path = .vim/bundle/vim-bufferline
-	url = https://github.com/bling/vim-bufferline
-[submodule ".vim/bundle/vim-airline-themes"]
-	path = .vim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes
-[submodule ".vim/bundle/base16-vim"]
-	path = .vim/bundle/base16-vim
-	url = https://github.com/chriskempson/base16-vim.git
 [submodule ".config/base16-shell"]
 	path = .config/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
@@ -81,3 +28,9 @@
 [submodule ".vim/bundle/command-t"]
 	path = .vim/bundle/command-t
 	url = https://github.com/wincent/command-t.git
+[submodule ".vim/bundle/vim-fugitive"]
+	path = .vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/vim-ruby"]
+	path = .vim/bundle/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
