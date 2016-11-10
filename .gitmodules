@@ -16,9 +16,6 @@
 [submodule "tmux"]
 	path = tmux/tmux
 	url = https://github.com/gpakosz/.tmux.git
-[submodule "powerline-fonts"]
-	path = powerline-fonts
-	url = https://github.com/powerline/fonts.git
 [submodule ".vim/bundle/vim-coffee-script"]
 	path = .vim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
