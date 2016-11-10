@@ -1,15 +1,17 @@
 dotfiles
 ========
 
-Collection of various config files for macOS (tested 10.10 - 10.12)
+Collection of various config files for macOS (tested 10.10 - 10.12). For easier management, you should have GNU Stow installed.
 
 # Installation
 
 ```
 cd ~/
-git clone https://github.com/dprandzioch/dotfiles.git
+git clone --recursive https://github.com/dprandzioch/dotfiles.git
 cd dotfiles/
-./setup.sh
+stow zsh
+stow vim
+stow whateverYouWant
 ```
 
 # Brewfile
@@ -28,6 +30,6 @@ file but homebrew is required.
 ## Install apps
 
 ```
-cd ~/dotfiles
+cd ~/dotfiles/_osx/home/
 brew bundle
 ```
