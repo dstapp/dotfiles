@@ -34,6 +34,6 @@
 [submodule ".vim/bundle/typescript-vim"]
 	path = vim/.vim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
-[submodule ".vim/bundle/syntastic"]
+[submodule "vim/.vim/bundle/syntastic"]
 	path = vim/.vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+	url = https://github.com/vim-syntastic/syntastic.git
