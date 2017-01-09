@@ -41,6 +41,12 @@ ctrl + alt + cmd - down  :    /usr/local/bin/kwmc window -s south
 ctrl + alt + cmd - up    :    /usr/local/bin/kwmc window -s north
 ctrl + alt + cmd - right :    /usr/local/bin/kwmc window -s east
 
+# expand window
+ctrl + alt + cmd - h               :    /usr/local/bin/kwmc window -c expand 0.05 west
+ctrl + alt + cmd - j               :    /usr/local/bin/kwmc window -c expand 0.05 south
+ctrl + alt + cmd - k               :    /usr/local/bin/kwmc window -c expand 0.05 north
+ctrl + alt + cmd - l               :    /usr/local/bin/kwmc window -c expand 0.05 east
+
 # Move window between displays
 ctrl + alt + cmd - n     :    /usr/local/bin/kwmc window -m display next
 
