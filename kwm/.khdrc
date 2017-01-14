@@ -19,6 +19,7 @@ cmd + alt + ctrl - q     :    /usr/local/bin/kwmc quit
 # Launch iTerm2
 cmd - return             :    open -na /Applications/iTerm2.app
 shift + cmd - return     :    open -na /Applications/Firefox.app
+cmd - g                  :    osascript ~/bin/goto_server.scpt
 
 # Give Focus To Window
 ctrl + alt - left         :    /usr/local/bin/kwmc window -f west
@@ -48,7 +49,8 @@ ctrl + alt + cmd - k               :    /usr/local/bin/kwmc window -c expand 0.0
 ctrl + alt + cmd - l               :    /usr/local/bin/kwmc window -c expand 0.05 east
 
 # Move window between displays
-ctrl + alt + cmd - n     :    /usr/local/bin/kwmc window -m display next
+ctrl + alt + cmd - m     :    /usr/local/bin/kwmc window -m display next
+ctrl + alt + cmd - n     :    /usr/local/bin/kwmc window -m display prev
 
 # reload khd
 ctrl + alt - r           :    /usr/local/bin/khd -e "reload"
