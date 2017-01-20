@@ -351,5 +351,5 @@ function! SelectaIdentifier()
 endfunction
 nnoremap <c-g> :call SelectaIdentifier()<cr>
 
-# Format JSON
+" Format JSON
 command! FormatJSON :%!python -m json.tool
