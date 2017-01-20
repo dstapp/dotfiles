@@ -350,3 +350,6 @@ function! SelectaIdentifier()
   call SelectaCommand("find * -type f", "-s " . @z, ":e")
 endfunction
 nnoremap <c-g> :call SelectaIdentifier()<cr>
+
+# Format JSON
+command! FormatJSON :%!python -m json.tool
