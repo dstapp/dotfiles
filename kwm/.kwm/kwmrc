@@ -37,7 +37,8 @@ e.g: window-rules in a separate file called 'rules'
 */
 
 # Set default values for screen padding
-kwmc config padding 40 20 20 20
+# 40 = uBar & Menu Bar padding
+kwmc config padding 40 40 20 20
 
 # Set default values for container gaps
 kwmc config gap 15 15
@@ -115,10 +116,10 @@ kwmc rule owner="iTerm2" properties={role="AXDialog"}
 /*
 The following commands create rules that
 blacklists an application from Kwms tiling
-
-    kwmc rule owner="Steam" properties={float="true"}
-    kwmc rule owner="Photoshop" properties={float="true"}
 */
+kwmc rule owner="Adium" properties={float="true"}
+kwmc rule owner="Disk Inventory X" properties={float="true"}
+
 
 /*
 The following command creates a rule that
@@ -131,12 +132,12 @@ if the screen exists.
 # Enable border for focused window
 kwmc config border focused on
 kwmc config border focused size 2
-kwmc config border focused color 0xFF7CAFC2
+kwmc config border focused color 0xFFC5C8C6
 kwmc config border focused radius 6
 
 # Enable border for marked window
 kwmc config border marked on
 kwmc config border marked size 2
-kwmc config border marked color 0xFF7CAFC2
+kwmc config border marked color 0xFFC5C8C6
 kwmc config border marked radius 6
 
