@@ -23,5 +23,6 @@
   dc = "diff --cached"
   p = "pull origin"
   rao = "remote add origin"
+  ai = "add --patch --interactive"
 [push]
 	default = current
