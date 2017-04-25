@@ -21,15 +21,9 @@ file but homebrew is required.
 
 ## Install Homebrew
 
-`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-
-## Install homebrew-bundle
-
-`brew tap Homebrew/bundle`
-
-## Install apps
-
 ```
-cd ~/dotfiles/_osx/home/
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+brew tap Homebrew/bundle
+cd ~/dotfiles/_macos/home/
 brew bundle
 ```
