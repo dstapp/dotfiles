@@ -1,1 +1,0 @@
-/Users/davd/dotfiles/.zsh
