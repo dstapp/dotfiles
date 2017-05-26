@@ -147,4 +147,6 @@ kwmc rule owner="phpstorm" name="Changes for (.*)" properties={float="true"}
 kwmc rule owner="phpstorm" name="Commit Changes" properties={float="true"}
 kwmc rule owner="phpstorm" name="Push Commits" properties={float="true"}
 
+kwmc rule owner="MacPass" properties={float="true"}
+
 kwmc rule name="Preferences" properties={float="true"}
