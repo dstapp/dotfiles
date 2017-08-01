@@ -1,83 +1,57 @@
+#
+########## GENERAL ##########
+#
+
 # reload config
 cmd + alt + ctrl - r : khd -e "reload"
 
 # open terminal, blazingly fast compared to iTerm/Hyper
 cmd - return : open -na /Applications/iTerm.app
+shift + cmd - return : open -na /Applications/Firefox.app
+
+
+#
+########## WINDOWS ##########
+#
 
 # Focus next/prev window
-cmd - j : chunkc tiling::window --focus prev
-cmd - k : chunkc tiling::window --focus next
-
-# focus monitor
-ctrl + alt - y  : chunkc tiling::monitor -f prev
-ctrl + alt - c  : chunkc tiling::monitor -f next
-
-# equalize size of windows
-shift + alt - 0 : chunkc tiling::desktop --equalize
-
-# swap window
-shift + alt - h : chunkc tiling::window --swap west
-shift + alt - j : chunkc tiling::window --swap south
-shift + alt - k : chunkc tiling::window --swap north
-shift + alt - l : chunkc tiling::window --swap east
+alt - a : chunkc tiling::window --focus west
+alt - d : chunkc tiling::window --focus east
+alt - w : chunkc tiling::window --focus north
+alt - s : chunkc tiling::window --focus south
 
 # move window
-shift + cmd - h : chunkc tiling::window --warp west
-shift + cmd - j : chunkc tiling::window --warp south
-shift + cmd - k : chunkc tiling::window --warp north
-shift + cmd - l : chunkc tiling::window --warp east
-
-# send window to monitor and follow focus
-ctrl + cmd - y  : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
-ctrl + cmd - c  : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
+shift + alt - a : chunkc tiling::window --warp west
+shift + alt - s : chunkc tiling::window --warp south
+shift + alt - w : chunkc tiling::window --warp north
+shift + alt - d : chunkc tiling::window --warp east
 
 # increase region size
-shift + alt - a : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west
-shift + alt - s : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge south
-shift + alt - w : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge north
-shift + alt - d : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
-
-# decrease region size
-shift + cmd - a : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge west
-shift + cmd - s : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge south
-shift + cmd - w : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge north
-shift + cmd - d : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
+ctrl + alt - a : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west
+ctrl + alt - s : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge south
+ctrl + alt - w : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge north
+ctrl + alt - d : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
 
 # rotate tree
 alt - r : chunkc tiling::desktop --rotate 90
 
-# mirror tree y-axis
-alt - y : chunkc tiling::desktop --mirror vertical
-
-# mirror tree x-axis
-alt - x : chunkc tiling::desktop --mirror horizontal
-
-# toggle desktop offset
-alt - a : chunkc tiling::desktop --toggle offset
-
 # toggle window fullscreen
-shift + alt - f : chunkc tiling::window --toggle fullscreen
-
-# toggle window parent zoom
-alt - d : chunkc tiling::window --toggle parent
-
-# toggle window split type
-alt - e : chunkc tiling::window --toggle split
-
-# float / unfloat window
-alt - t : chunkc tiling::window --toggle float
+alt - f : chunkc tiling::window --toggle fullscreen
 
 # toggle sticky, float and resize to picture-in-picture size
-alt - s : chunkc tiling::window --toggle sticky;\
+alt - p : chunkc tiling::window --toggle sticky;\
           chunkc tiling::window --warp-floating pip-right
 
-# float next window to be tiled
-shift + alt - t : chunkc set window_float_next 1
 
-# change layout of desktop
-#ctrl + alt - a : chunkc tiling::desktop --layout bsp
-#ctrl + alt - s : chunkc tiling::desktop --layout monocle
-#ctrl + alt - d : chunkc tiling::desktop --layout float
+#
+########## MONITORS ##########
+#
 
-#ctrl + alt - w : chunkc tiling::desktop --deserialize ~/.chunkwm_layouts/dev_1
+# focus monitor
+alt - y  : chunkc tiling::monitor -f prev
+alt - c  : chunkc tiling::monitor -f next
+
+# send window to monitor and follow focus
+shift + alt - y  : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
+shift + alt - c  : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
 
