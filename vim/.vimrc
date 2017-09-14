@@ -14,7 +14,7 @@ hi Search ctermbg=58 ctermfg=15
 hi Default ctermfg=1
 hi clear SignColumn
 hi SignColumn ctermbg=235
-hi EndOfBuffer ctermfg=237 ctermbg=235
+" hi EndOfBuffer ctermfg=237 ctermbg=235
 
 set noshowmode
 
