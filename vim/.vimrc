@@ -3,6 +3,7 @@ syntax on
 filetype plugin indent on
 " colorscheme gruvbox
 set cursorline
+set hlsearch
 hi CursorLine cterm=NONE ctermbg=DarkGrey ctermfg=white
 set number
 
@@ -18,10 +19,19 @@ hi SignColumn ctermbg=235
 
 set noshowmode
 
+let mapleader = ","
+
+" Get the path to the current buffer
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
 " set t_Co=256
 set shell=/bin/zsh
 
-set mouse=a
+" Enable mouse support
+"set mouse=a
+
+" Quickly switch between the last two files with ,,
+map <LEADER><LEADER> <C-^>
 
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:40'
 let g:ctrlp_max_files=0
@@ -31,6 +41,8 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 map <F10> :e $MYVIMRC<CR>
 map <F12> :so $MYVIMRC<CR> 
+
+:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 set laststatus=2
 
