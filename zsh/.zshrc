@@ -58,8 +58,20 @@ bindkey "^[[B" history-beginning-search-forward
 bindkey "[C" forward-word
 bindkey "[D" backward-word
 
+# Ship to beginning/end of a line with cmd-arrow
+bindkey "^[a" beginning-of-line
+bindkey "^[e" end-of-line
+
 # Disable beep
 setopt NO_BEEP
+
+# History search cursor EOL
+autoload up-line-or-beginning-search
+autoload down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
 function mcd() { mkdir -p $1 && cd $1 }
 function cdf() { cd *$1*/ } # stolen from @topfunky
