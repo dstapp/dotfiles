@@ -58,6 +58,9 @@ bindkey "^[[B" history-beginning-search-forward
 bindkey "[C" forward-word
 bindkey "[D" backward-word
 
+# Disable beep
+setopt NO_BEEP
+
 function mcd() { mkdir -p $1 && cd $1 }
 function cdf() { cd *$1*/ } # stolen from @topfunky
 
