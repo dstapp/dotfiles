@@ -54,6 +54,10 @@ export ACK_COLOR_MATCH='red'
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
+# Skip forward/back a word with opt-arrow
+bindkey "[C" forward-word
+bindkey "[D" backward-word
+
 function mcd() { mkdir -p $1 && cd $1 }
 function cdf() { cd *$1*/ } # stolen from @topfunky
 
