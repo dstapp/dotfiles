@@ -1,7 +1,6 @@
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
-" colorscheme gruvbox
 set cursorline
 set hlsearch
 hi CursorLine cterm=NONE ctermbg=DarkGrey ctermfg=white
@@ -26,9 +25,6 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " set t_Co=256
 set shell=/bin/zsh
-
-" Enable mouse support
-"set mouse=a
 
 " Quickly switch between the last two files with ,,
 map <LEADER><LEADER> <C-^>
