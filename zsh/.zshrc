@@ -12,9 +12,13 @@ autoload -U promptinit
 promptinit
 prompt davd
 
+# Disable globbing erros
+unsetopt nomatch
+
 # Initialize completion
 autoload -U compinit
 compinit
+zstyle ':completion:*' menu select
 
 autoload -U shorthands
 
