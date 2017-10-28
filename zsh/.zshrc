@@ -62,6 +62,9 @@ bindkey "[D" backward-word
 bindkey "^[a" beginning-of-line
 bindkey "^[e" end-of-line
 
+# Make fn+backspace work
+bindkey "\e[3~" delete-char
+
 # Disable beep
 setopt NO_BEEP
 
