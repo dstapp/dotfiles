@@ -54,3 +54,6 @@ set softtabstop=4   " Sets the number of columns for a TAB
 set expandtab       " Expand TABs to spaces
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Execute current file
+map <LEADER>. :!chmod +x % && ./%<cr>

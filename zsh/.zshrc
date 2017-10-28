@@ -76,6 +76,11 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
+
+# History substring search
+"^[OA" history-substring-search-up
+"^[OB" history-substring-search-down
+
 function mcd() { mkdir -p $1 && cd $1 }
 function cdf() { cd *$1*/ } # stolen from @topfunky
 
