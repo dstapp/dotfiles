@@ -76,10 +76,37 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
-
 # History substring search
 bindkey "^[OA" history-substring-search-up
 bindkey "^[OB" history-substring-search-down
+
+# Jump to beginning/end of line
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+
+# btw.. How to find out which sequence to bind using bindkey:
+#   echo -n "<press CTRL+V and then the keys you want to bind>" | od -c
+#
+# Normally this would end up just with empty quotes so you have
+# to press CTRL+V before pressing the keys as their sequence will
+# then be inserted as text.
+#
+# This will return something like this:
+#   thirteen:~() $ echo -n "^[[F" | od -c
+#   0000000  033   [   F
+#   0000003
+#
+# (on my macbook i pressed fn+arrow right)
+# This means that "[F" is what you want to bind. This has to be prefixed
+# with the escape sequence initiator "^[", so the whole thing is:
+#
+#   ^[[F
+#
+# Also make sure, when inserting the "bindkey" in your ZSH config, to not
+# use the actual escape sequence "^[" but actually the two single characters
+# ("written by hand") to not blow up many editors AND git diff
+#
+# Easy... right?
 
 function mcd() { mkdir -p $1 && cd $1 }
 function cdf() { cd *$1*/ } # stolen from @topfunky
