@@ -22,6 +22,7 @@
     rao = "remote add origin"
     ai = "add --patch --interactive"
     amend = commit --amend
+    cro = "!git rao $(create-repo.js $(basename `pwd`))"
 
 [push]
     default = current
