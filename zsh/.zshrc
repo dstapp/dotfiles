@@ -84,6 +84,10 @@ bindkey "^[OB" history-substring-search-down
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
+# Use fn+Left/Right to search history with already entered text
+bindkey "^[[5~" history-beginning-search-backward
+bindkey "^[[6~" history-beginning-search-forward
+
 # btw.. How to find out which sequence to bind using bindkey:
 #   echo -n "<press CTRL+V and then the keys you want to bind>" | od -c
 #
