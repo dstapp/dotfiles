@@ -32,8 +32,9 @@ map <LEADER><LEADER> <C-^>
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:40'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/dist/*
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn))|(dist|translatedTemplates)$'
+
 
 map <F10> :e $MYVIMRC<CR>
 map <F12> :so $MYVIMRC<CR> 
@@ -57,3 +58,24 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Execute current file
 map <LEADER>. :!chmod +x % && ./%<cr>
+
+" Split buffer vertically
+map <LEADER>s :vert sb<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
+
+" Load project specfic .vimrc if given
+silent! so .vimrc
