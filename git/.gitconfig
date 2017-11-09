@@ -24,6 +24,9 @@
     amend = commit --amend
     cro = "!git rao $(create-repo.js $(basename `pwd`))"
 
+[core]
+    excludesfile = ~/.gitignore
+
 [push]
     default = current
 
