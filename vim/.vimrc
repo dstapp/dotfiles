@@ -56,6 +56,12 @@ set expandtab       " Expand TABs to spaces
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+fu! ResetSpaces()
+    %retab!
+endfunction
+
+autocmd BufWritePre :call ResetSpaces()
+
 " Execute current file
 map <LEADER>. :!chmod +x % && ./%<cr>
 
