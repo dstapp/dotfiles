@@ -13,17 +13,3 @@ stow zsh
 stow vim
 stow whateverYouWant
 ```
-
-# Brewfile
-
-My Brewfile contains all applications I need. macOS can be provisioned using this
-file but homebrew is required.
-
-## Install Homebrew
-
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-brew tap Homebrew/bundle
-cd ~/dotfiles/_macos/home/
-brew bundle
-```
