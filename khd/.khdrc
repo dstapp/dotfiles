@@ -1,8 +1,31 @@
+#
+# SHIFT = Window
+# CTRL = Desktop
+#  +
+# ALT = Selection
+# CMD = Modification
+# ALT + CMD = Increase sizes (Window only)
+# CTRL + ALT + CMD = Decrease sizes (Window only)
+#  +
+# w = Top
+# a = Left
+# s = Down
+# d = Right
+# f = Fullscreen
+# y = Mirror y-axis
+# x = Mirror x-axis
+# o = Offset (Desktop)
+# t = Toggle float
+# r = Rotate
+# 0 = Equalize 
+#
+
+
 # reload config
-ctrl - r : khd -e "reload"
+ctrl + alt + cmd - r : khd -e "reload"
 
 # open terminal, blazingly fast compared to iTerm/Hyper
-cmd - return : open -na /Applications/kitty.app
+cmd - return : open -na /Applications/iTerm.app
 
 # Focus next/prev window
 shift + alt - a : chunkc tiling::window --focus west
@@ -24,10 +47,8 @@ shift + cmd - s : chunkc tiling::window --warp south
 shift + cmd - w : chunkc tiling::window --warp north
 shift + cmd - d : chunkc tiling::window --warp east
 
-# ---------
-
 # equalize size of windows
-#shift + alt - 0 : chunkc tiling::desktop --equalize
+shift + cmd - 0 : chunkc tiling::desktop --equalize
 
 # swap window
 #shift + alt - a : chunkc tiling::window --swap west
@@ -36,16 +57,16 @@ shift + cmd - d : chunkc tiling::window --warp east
 #shift + alt - d : chunkc tiling::window --swap east
 
 # increase region size
-#shift + alt - a : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west
-#shift + alt - s : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge south
-#shift + alt - w : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge north
-#shift + alt - d : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
+shift + alt + cmd - a : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west
+shift + alt + cmd - s : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge south
+shift + alt + cmd - w : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge north
+shift + alt + cmd - d : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
 
 # decrease region size
-#shift + cmd - a : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge west
-#shift + cmd - s : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge south
-#shift + cmd - w : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge north
-#shift + cmd - d : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
+shift + ctrl + alt + cmd - a : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge west
+shift + ctrl + alt + cmd - s : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge south
+shift + ctrl + alt + cmd - w : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge north
+shift + ctrl + alt + cmd - d : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
 
 # rotate tree
 shift + cmd - r : chunkc tiling::desktop --rotate 90
@@ -62,19 +83,5 @@ shift + cmd - f : chunkc tiling::window --toggle fullscreen
 # toggle desktop offset
 shift + alt - o : chunkc tiling::desktop --toggle offset
 
-
-# toggle window parent zoom
-#alt - d : chunkc tiling::window --toggle parent
-
-# toggle window split type
-#alt - e : chunkc tiling::window --toggle split
-
 # float / unfloat window
-#alt - t : chunkc tiling::window --toggle float
-
-# toggle sticky, float and resize to picture-in-picture size
-#alt - s : chunkc tiling::window --toggle sticky;\
-#          chunkc tiling::window --warp-floating pip-right
-
-# float next window to be tiled
-#shift + alt - t : chunkc set window_float_next 1
+alt - t : chunkc tiling::window --toggle float
