@@ -6,15 +6,7 @@ set hlsearch
  hi CursorLine cterm=NONE ctermbg=DarkGrey ctermfg=white
 set number
 
-" hi vertsplit ctermfg=238 ctermbg=235
-" hi LineNr ctermfg=237
-" hi StatusLine ctermfg=235 ctermbg=245
-" hi StatusLineNC ctermfg=235 ctermbg=237
-" hi Search ctermbg=58 ctermfg=15
-" hi Default ctermfg=1
 hi clear SignColumn
-" hi SignColumn ctermbg=235
-" hi EndOfBuffer ctermfg=237 ctermbg=235
 
 set noshowmode
 
@@ -38,10 +30,6 @@ let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/dist/*
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn))|(dist|translatedTemplates)$'
-
-
-map <F10> :e $MYVIMRC<CR>
-map <F12> :so $MYVIMRC<CR> 
 
 :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
@@ -94,4 +82,5 @@ inoremap <s-tab> <c-n>
 " Load project specfic .vimrc if given
 "silent! so .vimrc
 
+let g:tsuquyomi_shortest_import_path = 1
 let g:goyo_linenr = 1
