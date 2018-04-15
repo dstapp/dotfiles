@@ -84,3 +84,6 @@ inoremap <s-tab> <c-n>
 
 let g:tsuquyomi_shortest_import_path = 1
 let g:goyo_linenr = 1
+
+autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
