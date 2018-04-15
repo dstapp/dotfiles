@@ -16,3 +16,9 @@
 [submodule "vim/.vim/bundle/vim-es6"]
 	path = vim/.vim/bundle/vim-es6
 	url = https://github.com/isRuslan/vim-es6.git
+[submodule "vim/.vim/bundle/vimproc.vim"]
+	path = vim/.vim/bundle/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "vim/.vim/bundle/tsuquyomi"]
+	path = vim/.vim/bundle/tsuquyomi
+	url = https://github.com/Quramy/tsuquyomi.git

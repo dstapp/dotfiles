@@ -13,3 +13,6 @@ stow zsh
 stow vim
 stow whateverYouWant
 ```
+
+# Remark vim/tsuquyomi
+run "make" inside the plugin folder
