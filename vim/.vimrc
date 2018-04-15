@@ -1,19 +1,19 @@
 execute pathogen#infect()
-syntax on
+" syntax on
 filetype plugin indent on
 set cursorline
 set hlsearch
-hi CursorLine cterm=NONE ctermbg=DarkGrey ctermfg=white
+ hi CursorLine cterm=NONE ctermbg=DarkGrey ctermfg=white
 set number
 
-hi vertsplit ctermfg=238 ctermbg=235
-hi LineNr ctermfg=237
-hi StatusLine ctermfg=235 ctermbg=245
-hi StatusLineNC ctermfg=235 ctermbg=237
-hi Search ctermbg=58 ctermfg=15
-hi Default ctermfg=1
+" hi vertsplit ctermfg=238 ctermbg=235
+" hi LineNr ctermfg=237
+" hi StatusLine ctermfg=235 ctermbg=245
+" hi StatusLineNC ctermfg=235 ctermbg=237
+" hi Search ctermbg=58 ctermfg=15
+" hi Default ctermfg=1
 hi clear SignColumn
-hi SignColumn ctermbg=235
+" hi SignColumn ctermbg=235
 " hi EndOfBuffer ctermfg=237 ctermbg=235
 
 set noshowmode
@@ -26,9 +26,13 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " set t_Co=256
 set shell=/bin/zsh
 
+syntax enable
+set background=light
+colorscheme solarized
+
 " Quickly switch between the last two files with ,,
 map <LEADER><LEADER> <C-^>
-
+ 
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:40'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
@@ -58,6 +62,8 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType cucumber setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 
+let g:vim_markdown_folding_disabled=1
+
 fu! ResetSpaces()
     %retab!
 endfunction
@@ -86,4 +92,6 @@ inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
 " Load project specfic .vimrc if given
-silent! so .vimrc
+"silent! so .vimrc
+
+let g:goyo_linenr = 1
