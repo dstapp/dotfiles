@@ -28,3 +28,9 @@
 [submodule "vim/.vim/bundle/Dockerfile.vim"]
 	path = vim/.vim/bundle/Dockerfile.vim
 	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "vim/.vim/bundle/tern_for_vim"]
+	path = vim/.vim/bundle/tern_for_vim
+	url = https://github.com/ternjs/tern_for_vim.git
+[submodule "vim/.vim/bundle/editorconfig-vim"]
+	path = vim/.vim/bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
