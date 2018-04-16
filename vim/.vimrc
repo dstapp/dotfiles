@@ -80,7 +80,9 @@ inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
 " Load project specfic .vimrc if given
-"silent! so .vimrc
+if findfile(".vimrc", ".") == ".vimrc"
+    silent! so .vimrc
+endif    
 
 let g:tsuquyomi_shortest_import_path = 1
 let g:goyo_linenr = 1
