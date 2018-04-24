@@ -3,7 +3,7 @@ execute pathogen#infect()
 filetype plugin indent on
 set cursorline
 set hlsearch
- hi CursorLine cterm=NONE ctermbg=DarkGrey ctermfg=white
+hi CursorLine cterm=NONE ctermbg=DarkGrey ctermfg=white
 set number
 
 hi clear SignColumn
@@ -19,8 +19,8 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 set shell=/bin/zsh
 
 syntax enable
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme gruvbox
 
 " Quickly switch between the last two files with ,,
 map <LEADER><LEADER> <C-^>
@@ -45,6 +45,9 @@ set shiftwidth=4    " Indents will have a width of 4
 set softtabstop=4   " Sets the number of columns for a TAB
 
 set expandtab       " Expand TABs to spaces
+
+set backspace=2 " make backspace work like most other programs
+set backspace=indent,eol,start
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType cucumber setlocal ts=2 sts=2 sw=2 expandtab
@@ -80,12 +83,16 @@ inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
 " Load project specfic .vimrc if given
-if findfile(".vimrc", ".") == ".vimrc"
-    silent! so .vimrc
+if findfile(".vimrc_local", ".") == ".vimrc_local"
+    silent! so .vimrc_local
 endif    
 
 let g:tsuquyomi_shortest_import_path = 1
-let g:goyo_linenr = 1
+"let g:goyo_linenr = 1
 
 autocmd FileType vue syntax sync fromstart
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+au FileType gitcommit set tw=72
+
+set mouse=a
+let g:tsuquyomi_single_quote_import=1
