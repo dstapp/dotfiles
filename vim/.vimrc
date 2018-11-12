@@ -20,7 +20,6 @@ set shell=/bin/zsh
 
 syntax enable
 set background=dark
-colorscheme gruvbox
 
 " Quickly switch between the last two files with ,,
 map <LEADER><LEADER> <C-^>

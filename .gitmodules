@@ -46,6 +46,3 @@
 [submodule "vim/.vim/bundle/MatchTag"]
 	path = vim/.vim/bundle/MatchTag
 	url = https://github.com/gregsexton/MatchTag.git
-[submodule "vim/.vim/bundle/gruvbox"]
-	path = vim/.vim/bundle/gruvbox
-	url = https://github.com/morhetz/gruvbox.git
