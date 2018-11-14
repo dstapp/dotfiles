@@ -129,7 +129,7 @@ prompt_davd_setup() {
     pc[default]='default'
     pc[date]='cyan'
     pc[time]='Blue'
-    pc[host]='Green'
+    pc[host]='green'
     pc[user]='cyan'
     pc[punc]='yellow'
     pc[line]='magenta'
@@ -140,12 +140,12 @@ prompt_davd_setup() {
     pc[scm_branch]='green'
     pc[scm_commitid]='Yellow'
     pc[scm_status_dirty]='Red'
-    pc[scm_status_staged]='Green'
+    pc[scm_status_staged]='green'
     pc[scm_time_short]='green'
     pc[scm_time_medium]='yellow'
     pc[scm_time_long]='red'
     pc[scm_time_uncommitted]='Magenta'
-    pc[#]='Yellow'
+    pc[#]='yellow'
     for cn in ${(k)pc}; do
       pc[${cn}]=$(colorword $pc[$cn])
     done
