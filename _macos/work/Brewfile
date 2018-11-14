@@ -1,0 +1,30 @@
+tap "crisidev/chunkwm"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "koekeishiya/formulae"
+brew "mas"
+brew "python"
+brew "stow"
+brew "crisidev/chunkwm/chunkwm"
+brew "koekeishiya/formulae/khd"
+cask "docker"
+cask "firefox"
+cask "google-chrome"
+cask "insomnia"
+cask "iterm2"
+cask "macpass"
+cask "nextcloud"
+cask "rocket-chat"
+cask "safari-technology-preview"
+cask "sequel-pro"
+cask "visual-studio-code"
+cask "zeplin"
+mas "Amphetamine", id: 937984704
+mas "Cuppa", id: 1297865739
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "TextWrangler", id: 404010395
