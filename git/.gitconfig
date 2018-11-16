@@ -24,7 +24,7 @@
     amend = commit --amend
 
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore_global
 
 [push]
     default = current
