@@ -20,11 +20,6 @@
 # 0 = Equalize 
 #
 
-
-# reload config
-ctrl + alt + cmd - r : khd -e "reload"
-
-# open terminal, blazingly fast compared to iTerm/Hyper
 cmd - return : open -na /Applications/iTerm.app
 
 # Focus next/prev window
