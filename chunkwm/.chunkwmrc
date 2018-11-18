@@ -89,13 +89,26 @@ chunkc core::load border.so
 #
 
 chunkc tiling::rule --owner \"System Preferences\" --subrole AXStandardWindow --state tile
+#chunkc tiling::rule --owner Finder --desktop 3
+#chunkc tiling::rule --owner Mail --desktop 3
+#chunkc tiling::rule --owner Firefox --desktop 2
+#chunkc tiling::rule --owner Chrome --desktop 2
+#chunkc tiling::rule --owner Safari --desktop 2
+#chunkc tiling::rule --owner Code --desktop 1
+#chunkc tiling::rule --owner iTerm --desktop 1
+
+chunkc tiling::rule --owner MacPass --state float
+
 chunkc tiling::rule --owner Finder --name Copy --state float
-chunkc tiling::rule --owner Finder --desktop 3
-chunkc tiling::rule --owner Mail --desktop 3
-chunkc tiling::rule --owner MacPass --state sticky
-chunkc tiling::rule --owner Firefox --desktop 2
-chunkc tiling::rule --owner Chrome --desktop 2
-chunkc tiling::rule --owner Safari --desktop 2
-chunkc tiling::rule --owner Code --desktop 1
-chunkc tiling::rule --owner iTerm --desktop 1
+chunkc tiling::rule --owner Finder --name Move --state float
+chunkc tiling::rule --owner Finder --name Info --state float
+chunkc tiling::rule --owner \"App Store\" --state float
+chunkc tiling::rule --owner \"System Preferences\" --state float
+chunkc tiling::rule --owner \"Activity Monitor\" --state float
+chunkc tiling::rule --owner \"Calculator\" --state float
+
+# Virtual machines apps
+chunkc tiling::rule --owner \"Parallels Desktop\" --state float
+chunkc tiling::rule --owner \"Parallels Desktop\" --name \" \" --state float
+chunkc tiling::rule --owner \"VirtualBox\" --name \"Oracle VM VirtualBox Manager\" --state float
 
