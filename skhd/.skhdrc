@@ -20,7 +20,7 @@
 # 0 = Equalize 
 #
 
-cmd - return : open -na /Applications/iTerm.app
+cmd - return : "${HOME}"/.skhd_scripts/open_iterm.sh
 
 # Focus next/prev window
 shift + alt - a : chunkc tiling::window --focus west
