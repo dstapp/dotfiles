@@ -82,7 +82,7 @@ chunkc set ffm_standby_on_float          0
 #
 
 chunkc core::load tiling.so
-#chunkc core::load ffm.so
+chunkc core::load ffm.so
 chunkc core::load border.so
 
 #
