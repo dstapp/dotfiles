@@ -28,8 +28,6 @@ export PATH="$HOME/bin:$PATH"
 alias ls='ls -G'
 alias ll='ls -lG'
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
-export GREP_OPTIONS="--color"
-
 # Nicer history
 export HISTSIZE=100000
 export HISTFILE="$HOME/.history"
@@ -87,6 +85,8 @@ bindkey "^[[F" end-of-line
 # Use fn+Left/Right to search history with already entered text
 bindkey "^[[5~" history-beginning-search-backward
 bindkey "^[[6~" history-beginning-search-forward
+
+alias grep="grep --color=auto"
 
 # btw.. How to find out which sequence to bind using bindkey:
 #   echo -n "<press CTRL+V and then the keys you want to bind>" | od -c
