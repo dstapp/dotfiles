@@ -139,3 +139,6 @@ function up()
     test $DIR != "/" && echo $DIR/$TARGET
 }
 
+# navigate to project root (which has the .git folder) props to naps164
+alias cdr='cd $(git rev-parse --show-toplevel)'
+
