@@ -1,39 +1,28 @@
-tap "crisidev/chunkwm"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
-tap "homebrew/services"
-tap "koekeishiya/formulae"
-brew "ffmpeg"
-brew "graphviz"
-brew "icdiff"
-brew "imagemagick"
-brew "ncdu"
-brew "nmap"
-brew "progress"
+brew "hugo"
+brew "mas"
 brew "pv"
-brew "python"
-brew "ranger"
 brew "rbenv"
-brew "restic"
 brew "stow"
-brew "telnet"
 brew "tmux"
-brew "vnstat", restart_service: true
-brew "youtube-dl"
-brew "crisidev/chunkwm/chunkwm"
-brew "koekeishiya/formulae/khd"
-brew "koekeishiya/formulae/skhd"
-cask "adium"
+cask "docker"
 cask "electrum"
-cask "exifrenamer"
-cask "firefox"
-cask "gimp"
-cask "iina"
+cask "google-chrome"
+cask "graphiql"
+cask "iterm2"
 cask "libreoffice"
-cask "macpass"
-cask "nextcloud"
-cask "osxfuse"
 cask "robo-3t"
 cask "tor-browser"
 cask "virtualbox"
+cask "visual-studio-code"
+mas "Amphetamine", id: 937984704
+mas "Keynote", id: 409183694
+mas "Logic Pro X", id: 634148309
+mas "Magnet", id: 441258766
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Reeder", id: 880001334
+mas "Slack", id: 803453959
+mas "WhatsApp", id: 1147396723
