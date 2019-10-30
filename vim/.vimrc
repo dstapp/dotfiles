@@ -1,12 +1,35 @@
-execute pathogen#infect()
-" syntax on
+" vim:set ts=2 sts=2 sw=2 expandtab:
+
+call plug#begin('~/.vim/plugged')
+Plug 'slim-template/vim-slim'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'w0rp/ale'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'heavenshell/vim-tslint'
+call plug#end()
+
+" execute pathogen#infect()
+syntax on
 filetype plugin indent on
+set nocompatible
 set cursorline
+set showmatch
 set hlsearch
+set incsearch
+set ignorecase smartcase
 hi CursorLine cterm=NONE ctermbg=DarkGrey ctermfg=white
 set number
 
 hi clear SignColumn
+
+set showtabline=2
+
+set nobackup
+set nowritebackup
+set showcmd
 
 set noshowmode
 
@@ -17,6 +40,14 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " set t_Co=256
 set shell=/bin/zsh
+filetype plugin indent on
+
+set foldmethod=manual
+set nofoldenable
+set nojoinspaces
+set autoread
+
+set wildmenu
 
 syntax enable
 set background=dark
@@ -34,23 +65,19 @@ let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn))|(dist|translatedTemplates)$'
 
 set laststatus=2
 
-set tabstop=4       " The width of a TAB is set to 4.
+set tabstop=2       " The width of a TAB is set to 4.
                     " Still it is a \t. It is just that
                     " Vim will interpret it to be having
                     " a width of 4.
 
-set shiftwidth=4    " Indents will have a width of 4
+set shiftwidth=2    " Indents will have a width of 4
 
-set softtabstop=4   " Sets the number of columns for a TAB
+set softtabstop=2   " Sets the number of columns for a TAB
 
 set expandtab       " Expand TABs to spaces
 
 set backspace=2 " make backspace work like most other programs
 set backspace=indent,eol,start
-
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType cucumber setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:vim_markdown_folding_disabled=1
 
@@ -72,10 +99,16 @@ map <LEADER>s :vert sb<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertTabWrapper()
     let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
+    if !col
         return "\<tab>"
-    else
+    endif
+
+    let char = getline('.')[col - 1]
+    if char =~ '\k'
+        " There's an identifier before the cursor, so complete the identifier.
         return "\<c-p>"
+    else
+        return "\<tab>"
     endif
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
@@ -95,3 +128,47 @@ au FileType gitcommit set tw=72
 
 set mouse=a
 let g:tsuquyomi_single_quote_import=1
+let g:tsuquyomi_completion_detail = 1
+autocmd FileType typescript setlocal completeopt+=menu,preview
+
+let g:ale_linters = {'javascript': [], 'typescript': ['tsserver'], 'typescript.tsx': ['tsserver']}
+let g:ale_fixers = {'javascript': [], 'typescript': ['prettier'], 'typescript.tsx': ['prettier']}
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_delay = 0
+let g:ale_set_quickfix = 0
+let g:ale_set_loclist = 0
+nnoremap gj :ALENextWrap<cr>
+nnoremap gk :ALEPreviousWrap<cr>
+nnoremap g1 :ALEFirst<cr>
+" This mapping will kill all ALE-related processes (including tsserver). It's
+" necessary when those processes get confused. E.g., tsserver will sometimes
+" show type errors that don't actually exist. I don't know exactly why that
+" happens yet, but I think that it's related to renaming files.
+nnoremap g0 :ALEStopAllLSPs<cr>
+
+let g:tsuquyomi_disable_quickfix = 1
+
+augroup tslint
+  function! s:typescript_after(ch, msg)
+    let cnt = len(getqflist())
+    if cnt > 0
+      echomsg printf('[Tslint] %s errors', cnt)
+    endif
+  endfunction
+  let g:tslint_callbacks = {
+    \ 'after_run': function('s:typescript_after')
+    \ }
+
+  let g:tsuquyomi_disable_quickfix = 1
+
+  function! s:ts_quickfix()
+    let winid = win_getid()
+    execute ':TsuquyomiGeterr'
+    call tslint#run('a', winid)
+  endfunction
+
+  autocmd BufWritePost *.ts,*.tsx silent! call s:ts_quickfix()
+  autocmd InsertLeave *.ts,*.tsx silent! call s:ts_quickfix()
+augroup END
+autocmd BufWritePost *.ts,*.tsx call tslint#run('a', win_getid())
