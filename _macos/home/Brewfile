@@ -1,26 +1,50 @@
+tap "beeftornado/rmtree"
+tap "buo/cask-upgrade"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
 tap "homebrew/core"
+brew "caddy"
+brew "ffmpeg"
+brew "fish"
+brew "fzf"
+brew "htop"
 brew "hugo"
 brew "mas"
-brew "pv"
-brew "stow"
+brew "reattach-to-user-namespace"
+brew "rename"
+brew "shellcheck"
+brew "tldr"
 brew "tmux"
+brew "vim"
+brew "vnstat"
+brew "watch"
+cask "alacritty"
+cask "cyberduck"
 cask "docker"
 cask "electrum"
+cask "firefox"
 cask "google-chrome"
+cask "iterm2"
+cask "nextcloud"
 cask "robo-3t"
+cask "sketch"
+cask "tor-browser"
 cask "virtualbox"
 cask "vscodium"
-cask "avidemux"
-cask "handbrake"
-cask "iina"
+mas "AdGuard for Safari", id: 1440147259
+mas "Affinity Designer", id: 824171161
 mas "Amphetamine", id: 937984704
+mas "Apple Configurator 2", id: 1037126344
+mas "Audiobook Builder", id: 1437681957
+mas "Compressor", id: 424390742
+mas "ifolor Designer", id: 446366603
 mas "Keynote", id: 409183694
 mas "Logic Pro X", id: 634148309
 mas "Magnet", id: 441258766
+mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
+mas "Outbank", id: 1094255754
 mas "Pages", id: 409201541
 mas "Reeder", id: 880001334
-mas "Slack", id: 803453959
 mas "WhatsApp", id: 1147396723

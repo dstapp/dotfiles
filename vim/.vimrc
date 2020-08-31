@@ -172,3 +172,5 @@ augroup tslint
   autocmd InsertLeave *.ts,*.tsx silent! call s:ts_quickfix()
 augroup END
 autocmd BufWritePost *.ts,*.tsx call tslint#run('a', win_getid())
+
+set rtp+=/usr/local/opt/fzf
