@@ -11,19 +11,23 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'heavenshell/vim-tslint'
 call plug#end()
 
-" execute pathogen#infect()
-syntax on
 filetype plugin indent on
 set nocompatible
-set cursorline
 set showmatch
 set hlsearch
 set incsearch
 set ignorecase smartcase
-hi CursorLine cterm=NONE ctermbg=DarkGrey ctermfg=white
 set number
 
 hi clear SignColumn
+
+packadd! dracula
+syntax on
+colorscheme dracula
+highlight Normal ctermbg=NONE
+set number
+set cindent
+set visualbell
 
 set showtabline=2
 
@@ -39,7 +43,7 @@ let mapleader = ","
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " set t_Co=256
-set shell=/bin/zsh
+set shell=/usr/local/bin/fish
 filetype plugin indent on
 
 set foldmethod=manual
@@ -48,9 +52,6 @@ set nojoinspaces
 set autoread
 
 set wildmenu
-
-syntax enable
-set background=dark
 
 " Quickly switch between the last two files with ,,
 map <LEADER><LEADER> <C-^>
