@@ -1,34 +1,34 @@
-tap "crisidev/chunkwm"
+tap "buo/cask-upgrade"
+tap "caskroom/versions"
 tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/cask-versions"
 tap "homebrew/core"
-tap "homebrew/services"
-tap "koekeishiya/formulae"
-brew "htop"
-brew "imagemagick"
+brew "ffmpeg"
+brew "fzf"
+brew "gnu-sed"
+brew "hugo"
 brew "mas"
-brew "python"
-brew "ranger"
 brew "stow"
 brew "tmux"
-brew "crisidev/chunkwm/chunkwm"
-brew "koekeishiya/formulae/skhd"
+brew "zsh"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
 cask "docker"
 cask "firefox"
 cask "google-chrome"
-cask "insomnia"
 cask "iterm2"
-cask "macpass"
 cask "nextcloud"
-cask "rocket-chat"
-cask "safari-technology-preview"
+cask "obs"
+cask "postman"
+cask "robo-3t"
 cask "sequel-pro"
-cask "visual-studio-code"
+cask "shiftit"
+cask "vscodium"
 cask "zeplin"
 mas "Amphetamine", id: 937984704
-mas "Cuppa", id: 1297865739
+mas "com.peacockmedia.integrity", id: 513610341
+mas "Flow", id: 1423210932
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "TextWrangler", id: 404010395
+mas "Rocket.Chat", id: 1086818840

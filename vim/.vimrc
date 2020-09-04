@@ -21,7 +21,7 @@ set number
 
 hi clear SignColumn
 
-packadd! dracula
+" packadd! dracula
 syntax on
 colorscheme dracula
 highlight Normal ctermbg=NONE
