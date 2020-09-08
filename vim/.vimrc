@@ -4,11 +4,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'slim-template/vim-slim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'leafgarland/typescript-vim'
+Plug 'Shougo/vimproc'
 Plug 'Quramy/tsuquyomi'
 Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'arcticicestudio/nord-vim'
 Plug 'heavenshell/vim-tslint'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
 
 filetype plugin indent on
@@ -21,9 +24,8 @@ set number
 
 hi clear SignColumn
 
-" packadd! dracula
 syntax on
-colorscheme dracula
+colorscheme nord
 highlight Normal ctermbg=NONE
 set number
 set cindent
@@ -175,3 +177,13 @@ augroup END
 autocmd BufWritePost *.ts,*.tsx call tslint#run('a', win_getid())
 
 set rtp+=/usr/local/opt/fzf
+set relativenumber
+set rnu
+
+let g:tsuquyomi_use_local_typescript = 0
+let g:tsuquyomi_use_dev_node_module = 0
+let g:tsuquyomi_tsserver_path = '/home/davd/n/bin/tsserver'
+let g:tsuquyomi_nodejs_path = '/home/davd/n/bin/node'
+
+" set filetypes as typescript.tsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
