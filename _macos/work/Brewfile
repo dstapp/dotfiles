@@ -1,12 +1,7 @@
 tap "buo/cask-upgrade"
-tap "caskroom/versions"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-brew "ffmpeg"
-brew "fzf"
 brew "gnu-sed"
-brew "hugo"
+brew "htop"
+brew "imagemagick"
 brew "mas"
 brew "stow"
 brew "tmux"
@@ -18,17 +13,14 @@ cask "docker"
 cask "firefox"
 cask "google-chrome"
 cask "iterm2"
-cask "nextcloud"
-cask "obs"
 cask "postman"
 cask "robo-3t"
 cask "sequel-pro"
 cask "shiftit"
+#cask "safari-technology-preview"
 cask "vscodium"
 cask "zeplin"
+cask "1password"
+cask "shiftit"
 mas "Amphetamine", id: 937984704
-mas "com.peacockmedia.integrity", id: 513610341
-mas "Flow", id: 1423210932
 mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Rocket.Chat", id: 1086818840

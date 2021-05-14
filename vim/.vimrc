@@ -132,7 +132,7 @@ autocmd FileType vue syntax sync fromstart
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 au FileType gitcommit set tw=72
 
-set mouse=a
+#set mouse=a
 let g:tsuquyomi_single_quote_import=1
 let g:tsuquyomi_completion_detail = 1
 autocmd FileType typescript setlocal completeopt+=menu,preview

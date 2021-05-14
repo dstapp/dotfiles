@@ -135,3 +135,5 @@ defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server All
 
 killall -9 Finder
 killall -9 Dock
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
