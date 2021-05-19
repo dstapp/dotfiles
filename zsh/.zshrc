@@ -22,7 +22,7 @@ zstyle ':completion:*' menu select
 
 autoload -U shorthands
 
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin/:$PATH"
 
 # Colorize terminal
 alias ls='ls -G'
