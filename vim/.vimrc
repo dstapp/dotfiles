@@ -194,8 +194,8 @@ nnoremap <silent> <leader>fix :YcmCompleter FixIt<CR>
 "nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30 <CR>
 
-nnoremap <leader>vs :vsplit<CR>
-nnoremap <leader>hs :split<CR>
+" nnoremap <leader>vs :vsplit<CR>
+" nnoremap <leader>hs :split<CR>
 
 nnoremap <leader>ps :Rg<SPACE>
 

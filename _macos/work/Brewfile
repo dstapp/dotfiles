@@ -30,5 +30,6 @@ cask "vscodium"
 cask "zeplin"
 cask "1password"
 cask "shiftit"
+cask "android-studio"
 mas "Amphetamine", id: 937984704
 mas "Keynote", id: 409183694
