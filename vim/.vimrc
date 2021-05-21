@@ -162,43 +162,12 @@ set rnu
 " set filetypes as typescript.tsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
-function! s:SubStr(originalstring, pattern, replacement) abort
-  return substitute(a:originalstring, a:pattern, a:replacement, "")
-endfunction
-
-function! AngularCssAlternate(cmd) 
-  let l:currentpath = expand('%')
-  let l:possiblepathsforalternatefile = []
-
-  for possiblenewpath in [s:SubStr(l:currentpath, ".ts", ".scss")]
-    if possiblenewpath != l:currentpath
-      let l:possiblepathsforalternatefile = l:possiblepathsforalternatefile + [possiblenewpath]
-    endif
-  endfor
-
-  for path in l:possiblepathsforalternatefile
-    if filereadable(path)
-      return  ':e ' . fnameescape(path)
-    endif
-  endfor
-
-  return 'echoerr '.string("Couldn't find alternate file")
-endfunction
-
 map <C-t> :NERDTreeToggle %<CR>
 
 nnoremap <silent> <leader>def :YcmCompleter GoTo<CR>
 nnoremap <silent> <leader>fix :YcmCompleter FixIt<CR>
 
-"nnoremap <leader>h :wincmd h<CR>
-"nnoremap <leader>j :wincmd j<CR>
-"nnoremap <leader>k :wincmd k<CR>
-"nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30 <CR>
-
-" nnoremap <leader>vs :vsplit<CR>
-" nnoremap <leader>hs :split<CR>
-
 nnoremap <leader>ps :Rg<SPACE>
 
 nnoremap <silent> <leader>+ :vertical resize +5<CR>
