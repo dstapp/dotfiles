@@ -14,6 +14,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'jremmen/vim-ripgrep'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
 filetype plugin indent on
@@ -22,7 +23,8 @@ set showmatch
 set hlsearch
 set incsearch
 set ignorecase smartcase
-set number
+set noerrorbells
+set nowrap
 
 hi clear SignColumn
 
@@ -209,3 +211,7 @@ set omnifunc=syntaxcomplete#Complete
 if executable('rg')
   let g:rg_derive_root='true'
 endif
+
+" sane commenting
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
