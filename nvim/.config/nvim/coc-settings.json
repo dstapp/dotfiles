@@ -1,0 +1,6 @@
+{
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "typescript.preferences.importModuleSpecifier": "non-relative"
+}
+
