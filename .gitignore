@@ -1,3 +1,4 @@
 vim/.vim/.netrwhist
 vim/.vim/plugged
 zsh/.zsh/ext/
+nvim/.config/nvim/autoload/plugged
