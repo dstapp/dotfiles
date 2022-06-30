@@ -1,4 +1,7 @@
 vim/.vim/.netrwhist
 vim/.vim/plugged
 zsh/.zsh/ext/
-nvim/.config/nvim/autoload/
+nvim/.config/nvim/autoload/plugged
+nvim/.local/share/nvim/swap
+nvim/.local/share/nvim/shada
+nvim/.local/share/nvim/site/autoload/plugged/
