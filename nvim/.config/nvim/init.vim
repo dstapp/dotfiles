@@ -1,11 +1,15 @@
 call plug#begin('~/.local/share/nvim/site/autoload/plugged')
-Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
+" Plug 'morhetz/gruvbox'
+" Plug 'sainnhe/gruvbox-material'
+" Plug 'shaunsingh/nord.nvim'
+Plug 'arcticicestudio/nord-vim'
 
 " Git integration
 " Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
+
+" Plug 'itchyny/lightline.vim'
 
 " Fancy pants airline
 Plug 'vim-airline/vim-airline'
@@ -93,15 +97,20 @@ set list
 " Colors
 let g:gruvbox_material_enable_italic = 1
 let g:gruvbox_material_background = 'medium'
-colorscheme gruvbox-material
+colorscheme nord
 set termguicolors
 set background=dark
 highlight Beacon guibg=white ctermbg=NONE
 
 " Fancy fancy airline things
-let g:airline_theme='gruvbox_material'
+let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
+
+"let g:lightline = {
+"    \ 'colorscheme': 'nord',
+"    \ }
+
 
 " Nerdcommander
 " Align line-wise comment delimiters flush left instead of following code indentation
