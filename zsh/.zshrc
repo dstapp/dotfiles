@@ -142,3 +142,5 @@ function up()
 # navigate to project root (which has the .git folder) props to naps164
 alias cdr='cd $(git rev-parse --show-toplevel)'
 
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
