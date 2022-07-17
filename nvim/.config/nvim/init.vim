@@ -122,6 +122,7 @@ let g:NERDSpaceDelims = 1"
 nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>F <cmd>Telescope live_grep<cr>
 nnoremap <leader>R <cmd>Telescope resume<cr>
+nnoremap <leader>t <cmd>CocCommand angular.goToTemplateForComponent<cr>
 
 " Somehow you need to be able to exit insert mode from the terminal again
 :tnoremap <Esc> <C-\><C-n>
@@ -130,7 +131,7 @@ nnoremap <leader>R <cmd>Telescope resume<cr>
 let g:blamer_enabled = 1
 
 " CoC
-let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-json']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-json', 'coc-html', 'coc-css', 'coc-cssmodules', 'coc-angular', 'coc-docker', 'coc-html-css-support', 'coc-stylelint', 'coc-yaml']
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
