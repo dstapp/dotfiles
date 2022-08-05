@@ -27,7 +27,8 @@
 	excludesfile = ~/.gitignore_global
 
 [push]
-    default = current
+	default = current
+	autoSetupRemote = true
 
 [merge]
     tool = vimdiff
