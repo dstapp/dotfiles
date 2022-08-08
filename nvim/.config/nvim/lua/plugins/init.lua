@@ -1,16 +1,10 @@
 vim.cmd([[
 call plug#begin('~/.local/share/nvim/site/autoload/plugged')
-" Plug 'morhetz/gruvbox'
-" Plug 'sainnhe/gruvbox-material'
-" Plug 'shaunsingh/nord.nvim'
 Plug 'arcticicestudio/nord-vim'
 
 " Git integration
-" Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
-
-" Plug 'itchyny/lightline.vim'
 
 " Fancy pants LUAline
 Plug 'nvim-lualine/lualine.nvim'
@@ -31,7 +25,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'mattn/emmet-vim'
 
 " Close parens directly
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 
 " Vertikale strichelcher
 Plug 'Yggdroot/indentLine'

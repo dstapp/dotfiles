@@ -1,6 +1,7 @@
 :lua require 'plugins'
 :lua require 'coc'
 :lua require 'lualine-config'
+:lua require 'autopairs-config'
 
 let mapleader = ","
 " source current file
