@@ -5,11 +5,15 @@ Plug 'arcticicestudio/nord-vim'
 " Git integration
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
+Plug 'tpope/vim-fugitive'
 
 " Fancy pants LUAline
 Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
 Plug 'kyazdani42/nvim-web-devicons'
+
+" Tree
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Comments
 Plug 'preservim/nerdcommenter'

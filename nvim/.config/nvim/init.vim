@@ -2,6 +2,8 @@
 :lua require 'coc'
 :lua require 'lualine-config'
 :lua require 'autopairs-config'
+:lua require 'nvim-tree-config'
+:lua require 'mappings'
 
 let mapleader = ","
 " source current file
