@@ -25,6 +25,7 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = nvim
 
 [push]
 	default = current
