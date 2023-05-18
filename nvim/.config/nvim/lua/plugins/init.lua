@@ -23,6 +23,8 @@ Plug 'leafOfTree/vim-matchtag'
 
 " Search thingy
 Plug 'nvim-lua/plenary.nvim'
+Plug 'BurntSushi/ripgrep'
+Plug 'nvim-telescope/telescope-fzf-native.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " Emmet
@@ -45,3 +47,25 @@ Plug 'tweekmonster/startuptime.vim'
 Plug 'jeetsukumaran/vim-buffergator'
 call plug#end()
 ]])
+
+require('telescope').setup {
+  defaults = {
+    file_ignore_patterns = {
+      "node_modules",
+      "dist",
+      "build",
+    },
+
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--ignore-file',
+      '.gitignore'
+    },
+  }
+}
