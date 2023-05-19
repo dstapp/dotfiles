@@ -26,6 +26,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
+	autocrlf = input
 
 [push]
 	default = current

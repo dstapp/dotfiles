@@ -146,3 +146,11 @@ alias cdr='cd $(git rev-parse --show-toplevel)'
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Created by `pipx` on 2023-03-10 17:52:12
+export PATH="$PATH:/Users/david/dotfiles/nvim/.local/bin"

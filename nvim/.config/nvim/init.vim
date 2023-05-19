@@ -61,10 +61,10 @@ set scrolloff=8
 " let g:strip_whitespace_on_save=1
 
 set list
-colorscheme nord
-set termguicolors
-set background=dark
-highlight Beacon guibg=white ctermbg=NONE
+" colorscheme nord
+" set termguicolors
+" set background=dark
+" highlight Beacon guibg=white ctermbg=NONE
 
 "let g:lightline = {
 "    \ 'colorscheme': 'nord',
