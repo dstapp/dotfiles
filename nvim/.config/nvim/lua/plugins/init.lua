@@ -1,6 +1,6 @@
 vim.cmd([[
 call plug#begin('~/.local/share/nvim/site/autoload/plugged')
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
 
 " Git integration
 Plug 'airblade/vim-gitgutter'
@@ -45,6 +45,9 @@ Plug 'tweekmonster/startuptime.vim'
 
 " Something with buffers
 Plug 'jeetsukumaran/vim-buffergator'
+
+" Plug 'Mofiqul/dracula.nvim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
 ]])
 

@@ -62,6 +62,9 @@ set scrolloff=8
 
 set list
 " colorscheme nord
+colorscheme catppuccin-mocha
+:hi Normal guibg=NONE ctermbg=NONE
+
 " set termguicolors
 " set background=dark
 " highlight Beacon guibg=white ctermbg=NONE

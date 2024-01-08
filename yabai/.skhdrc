@@ -19,6 +19,14 @@ shift + alt - h : yabai -m window --swap west
 shift + alt - j : yabai -m window --swap south
 shift + alt - k : yabai -m window --swap north
 shift + alt - l : yabai -m window --swap east
+
+# modifying the layout
+shift + alt - r : yabai -m space --rotate 270
+
+# toggle full screen
+#shift + alt - m : yabai -m window --toggle zoom-fullscreen
+shift + alt - f : yabai -m window --toggle zoom-fullscreen
+
 #
 ## move window
 #shift + cmd - h : yabai -m window --warp west
@@ -54,7 +62,7 @@ shift + alt - l : yabai -m window --swap east
 #
 ## fast focus desktop
 #cmd + alt - x : yabai -m space --focus recent
-#cmd + alt - z : yabai -m space --focus prev || skhd -k "ctrl + alt + cmd - z"
+#cmd + alt - y : yabai -m space --focus prev || skhd -k "ctrl + alt + cmd - y"
 #cmd + alt - c : yabai -m space --focus next || skhd -k "ctrl + alt + cmd - c"
 #cmd + alt - 1 : yabai -m space --focus  1 || skhd -k "ctrl + alt + cmd - 1"
 #cmd + alt - 2 : yabai -m space --focus  2 || skhd -k "ctrl + alt + cmd - 2"
@@ -105,10 +113,10 @@ shift + alt - l : yabai -m window --swap east
 #shift + ctrl - d : yabai -m window --move rel:20:0
 #
 ## increase window size
-#shift + alt - a : yabai -m window --resize left:-20:0
-#shift + alt - s : yabai -m window --resize bottom:0:20
-#shift + alt - w : yabai -m window --resize top:0:-20
-#shift + alt - d : yabai -m window --resize right:20:0
+shift + alt - a : yabai -m window --resize right:-50:0
+shift + alt - s : yabai -m window --resize bottom:0:20
+shift + alt - w : yabai -m window --resize top:0:-20
+shift + alt - d : yabai -m window --resize right:50:0
 #
 ## decrease window size
 #shift + cmd - a : yabai -m window --resize left:20:0
@@ -138,8 +146,6 @@ shift + alt - l : yabai -m window --swap east
 ## toggle window parent zoom
 #alt - d : yabai -m window --toggle zoom-parent
 #
-## toggle window fullscreen zoom
-shift + alt - f : yabai -m window --toggle zoom-fullscreen
 #
 ## toggle window split type
 #alt - e : yabai -m window --toggle split
