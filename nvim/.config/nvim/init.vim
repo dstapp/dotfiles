@@ -65,6 +65,9 @@ set list
 colorscheme catppuccin-mocha
 :hi Normal guibg=NONE ctermbg=NONE
 
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+
 " set termguicolors
 " set background=dark
 " highlight Beacon guibg=white ctermbg=NONE

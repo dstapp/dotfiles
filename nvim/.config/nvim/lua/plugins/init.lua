@@ -48,6 +48,13 @@ Plug 'jeetsukumaran/vim-buffergator'
 
 " Plug 'Mofiqul/dracula.nvim'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
+" Golang
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'neovim/nvim-lspconfig'
+Plug 'ray-x/go.nvim'
+Plug 'ray-x/guihua.lua'
+
 call plug#end()
 ]])
 
@@ -72,3 +79,20 @@ require('telescope').setup {
     },
   }
 }
+
+
+
+require('go').setup()
+
+-- Run gofmt + goimport on save
+
+local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   require('go.format').goimport()
+  end,
+  group = format_sync_grp,
+})
+
+
