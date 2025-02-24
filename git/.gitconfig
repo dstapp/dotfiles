@@ -1,38 +1,67 @@
 [user]
-    name = David Stapp
-    email = git@davd.io
+  name = David Stapp
+  email = git@davd.io
 
 [color]
-    ui = auto
+  ui = auto
 
 [alias]
-    co = checkout
-    ci = commit
-    st = status
-    br = branch
-    ap = "add -p"
-    h = "log --pretty=format:'%h - %s%d (%ar) <%an>' --graph --date=short"
-    type = "cat-file -t"
-    dump = "cat-file -p"
-    aa = "add -A"
-    pa = "push origin --all"
-    di = diff
-    dc = "diff --cached"
-    p = "pull origin"
-    rao = "remote add origin"
-    ai = "add --patch --interactive"
-    amend = commit --amend
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  h = "log --pretty=format:'%h - %s%d (%ar) <%an>' --graph --date=short"
+  aa = "add -A"
+  pa = "push origin --all"
+  di = diff
+  rao = "remote add origin"
+  ai = "add --patch --interactive"
 
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
 	autocrlf = input
 
+[branch]
+  sort = -committerdate
+
+[tag]
+  sort = version:refname
+
 [push]
 	default = current
 	autoSetupRemote = true
+  followTags = true
+
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
 
 [merge]
-    tool = vimdiff
+  tool = vimdiff
+
 [pull]
-	rebase = false
+  #rebase = false
+	rebase = true
+
+[init]
+	defaultBranch = main
+
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+
+[commit]
+  verbose = true
+
+[rerere]
+  enabled = true
+  autoupdate = true
+
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
