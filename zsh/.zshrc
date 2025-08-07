@@ -144,7 +144,11 @@ alias cdr='cd $(git rev-parse --show-toplevel)'
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-eval "$(fnm env --use-on-cd --shell zsh)"
-
 # Created by `pipx` on 2023-03-10 17:52:12
 export PATH="$PATH:/Users/david/dotfiles/nvim/.local/bin"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/david/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
