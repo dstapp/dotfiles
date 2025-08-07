@@ -5,6 +5,7 @@ typeset -U fpath
 
 # Load all of the config files
 for config_file ($ZSH/ext/**/*.zsh) source $config_file
+for config_file ($ZSH/ext_local/**/*.zsh) source $config_file
 
 # Set custom prompt
 setopt PROMPT_SUBST

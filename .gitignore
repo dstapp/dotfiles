@@ -1,8 +1,15 @@
-vim/.vim/.netrwhist
-vim/.vim/plugged
-zsh/.zsh/ext/
+# Folder for local extensions that should not end up indexed
+zsh/.zsh/ext_local
+
+# Since nvim configs are in ~/.config and ~/.local, which is shared with other apps, this is a bit messy
 nvim/.config/nvim/autoload/plugged
 nvim/.local/share/nvim/swap
 nvim/.local/share/nvim/shada
 nvim/.local/share/nvim/site/autoload/plugged/
 nvim/.config/nvim/plugin/packer_compiled.lua
+nvim/.local/share/nvim/
+nvim/.local/state/
+
+# Prevent other ~/.config contents to get indexed
+nvim/.config/
+!nvim/.config/nvim
