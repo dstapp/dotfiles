@@ -49,4 +49,27 @@ return require('packer').startup(function(use)
 
     -- Snippet collections (optional)
     -- use 'rafamadriz/friendly-snippets'
+
+    use({
+      'nvim-neo-tree/neo-tree.nvim',
+      branch = 'v3.x',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'MunifTanjim/nui.nvim',
+        'nvim-tree/nvim-web-devicons',
+      },
+      config = function()
+        require('neo-tree').setup({
+          default_component_configs = {
+            filesystem = {
+              follow_current_file = {
+                enabled = true, -- This will find and focus the file in the active buffer every time
+                --               -- the current file is changed while the tree is open.
+                leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+              },
+            },
+          },
+        })
+      end
+    })
   end)
