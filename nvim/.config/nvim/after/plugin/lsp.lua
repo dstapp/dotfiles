@@ -17,20 +17,19 @@ end
 -- nvim-cmp capabilities
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- Setup language servers manually
-local lspconfig = require('lspconfig')
-
-lspconfig.ts_ls.setup({
+vim.lsp.config('ts_ls', {
   on_attach = on_attach,
   capabilities = capabilities,
 })
+vim.lsp.enable('ts_ls')
 
-lspconfig.rust_analyzer.setup({
+vim.lsp.config('rust_analyzer', {
   on_attach = on_attach,
   capabilities = capabilities,
 })
+vim.lsp.enable('rust_analyzer')
 
-lspconfig.lua_ls.setup({
+vim.lsp.config('lua_ls', {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -46,8 +45,9 @@ lspconfig.lua_ls.setup({
     },
   },
 })
+vim.lsp.enable('lua_ls')
 
-lspconfig.gopls.setup({
+vim.lsp.config('gopls', {
   on_attach = on_attach,  -- Your custom keymaps/handlers
   capabilities = capabilities,  -- Your cmp_nvim_lsp capabilities
   settings = {
@@ -60,3 +60,4 @@ lspconfig.gopls.setup({
     }
   }
 })
+vim.lsp.enable('gopls')
