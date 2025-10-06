@@ -8,10 +8,33 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
   vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+  vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+
+  -- Auto-import missing symbols via tsserver
+  local function import_missing()
+    vim.lsp.buf.code_action({
+      context = { only = { "quickfix" } },
+      apply = true, -- Automatically applies the fix
+    })
+  end
+
+  vim.keymap.set("n", "<leader>im", import_missing, { desc = "Import missing symbols (TS)" })
+
+  -- Function to add all missing imports in the file using source code action
+  local function add_all_missing_imports()
+    vim.lsp.buf.code_action({
+      context = {
+        only = { "source.addMissingImports.ts" }
+      },
+      apply = true, -- Auto-applies the code action if only one
+    })
+  end
+
+  vim.keymap.set("n", "<leader>ai", add_all_missing_imports, { desc = "Add all missing imports (TS)" })
 end
 
 -- nvim-cmp capabilities
