@@ -2,7 +2,20 @@
 local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  -- Enhanced navigation with fallbacks
+  vim.keymap.set("n", "gd", function()
+    -- Try LSP definition first, fallback to Telescope if it fails
+    local success, result = pcall(vim.lsp.buf.definition)
+    if not success or not result then
+      require('telescope.builtin').lsp_definitions()
+    end
+  end, opts)
+  
+  vim.keymap.set("n", "gD", function()
+    -- Always use Telescope for definitions (better for complex imports)
+    require('telescope.builtin').lsp_definitions()
+  end, { desc = "Go to definition (Telescope)" })
+  
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
   vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
   vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
@@ -13,6 +26,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+  
+  -- Additional navigation methods
+  vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
+  vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
+  vim.keymap.set("n", "<leader>ds", require('telescope.builtin').lsp_document_symbols, opts)
+  vim.keymap.set("n", "<leader>ws", require('telescope.builtin').lsp_dynamic_workspace_symbols, opts)
 
   -- Auto-import missing symbols via tsserver
   local function import_missing()
@@ -35,6 +54,25 @@ local on_attach = function(client, bufnr)
   end
 
   vim.keymap.set("n", "<leader>ai", add_all_missing_imports, { desc = "Add all missing imports (TS)" })
+  
+  -- LSP debugging and status
+  vim.keymap.set("n", "<leader>ls", function()
+    local clients = vim.lsp.get_clients({ bufnr = bufnr })
+    if #clients == 0 then
+      print("No LSP clients attached")
+    else
+      for _, client in ipairs(clients) do
+        print(string.format("LSP: %s (id: %d)", client.name, client.id))
+        print(string.format("  Root: %s", client.config.root_dir or "Not set"))
+        print(string.format("  Capabilities: %s", vim.inspect(client.server_capabilities)))
+      end
+    end
+  end, { desc = "Show LSP status" })
+  
+  vim.keymap.set("n", "<leader>lr", function()
+    vim.lsp.stop_client(vim.lsp.get_clients({ bufnr = bufnr }))
+    vim.cmd("edit")
+  end, { desc = "Restart LSP" })
 end
 
 -- nvim-cmp capabilities
@@ -43,6 +81,39 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 vim.lsp.config('ts_ls', {
   on_attach = on_attach,
   capabilities = capabilities,
+  settings = {
+    typescript = {
+      preferences = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+      suggest = {
+        completeFunctionCalls = true,
+      },
+    },
+    javascript = {
+      preferences = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+      suggest = {
+        completeFunctionCalls = true,
+      },
+    },
+  },
+  root_dir = function(fname)
+    return require('lspconfig.util').root_pattern('tsconfig.json', 'package.json', '.git')(fname) or vim.fn.getcwd()
+  end,
 })
 vim.lsp.enable('ts_ls')
 
