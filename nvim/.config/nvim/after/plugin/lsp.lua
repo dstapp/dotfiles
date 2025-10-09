@@ -57,11 +57,23 @@ vim.lsp.config('gopls', {
 vim.lsp.enable('gopls')
 
 -- TypeScript configuration using typescript-tools
-vim.lsp.config('typescript-tools', {
-  on_attach = function()
+require('typescript-tools').setup({
+  on_attach = function(client, bufnr)
+    local opts = { buffer = bufnr, remap = false }
+    
+    -- Override the default gd mapping for TypeScript files
     vim.keymap.set("n", "gd", "<cmd>TSToolsGoToSourceDefinition<cr>", { buffer = bufnr, desc = "Go to Source Definition" })
+    vim.keymap.set("n", "gD", "<cmd>TSToolsGoToSourceDefinition<cr>", { buffer = bufnr, desc = "Go to Source Definition" })
+    vim.keymap.set("n", "K", "<cmd>TSToolsHover<cr>", { buffer = bufnr, desc = "Hover" })
+    vim.keymap.set("n", "<leader>rn", "<cmd>TSToolsRename<cr>", { buffer = bufnr, desc = "Rename" })
+    vim.keymap.set("n", "<leader>ca", "<cmd>TSToolsCodeActions<cr>", { buffer = bufnr, desc = "Code Actions" })
+    vim.keymap.set("n", "<leader>rf", "<cmd>TSToolsRenameFile<cr>", { buffer = bufnr, desc = "Rename File" })
+    vim.keymap.set("n", "<leader>oi", "<cmd>TSToolsOrganizeImports<cr>", { buffer = bufnr, desc = "Organize Imports" })
+    vim.keymap.set("n", "<leader>ru", "<cmd>TSToolsRemoveUnused<cr>", { buffer = bufnr, desc = "Remove Unused" })
+    vim.keymap.set("n", "<leader>fa", "<cmd>TSToolsFixAll<cr>", { buffer = bufnr, desc = "Fix All" })
+    vim.keymap.set("n", "<leader>da", "<cmd>TSToolsAddMissingImports<cr>", { buffer = bufnr, desc = "Add Missing Imports" })
   end,
-  capabilities = capabilities,  -- Your cmp_nvim_lsp capabilities
+  capabilities = capabilities,
   settings = {
     tsserver = {
       -- Enable inlay hints
@@ -78,4 +90,3 @@ vim.lsp.config('typescript-tools', {
     },
   },
 })
-vim.lsp.enable('typescript-tools')
