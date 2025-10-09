@@ -1,4 +1,3 @@
--- LSP keymaps
 local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
@@ -13,38 +12,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-
-  -- Auto-import missing symbols via tsserver
-  local function import_missing()
-    vim.lsp.buf.code_action({
-      context = { only = { "quickfix" } },
-      apply = true, -- Automatically applies the fix
-    })
-  end
-
-  vim.keymap.set("n", "<leader>im", import_missing, { desc = "Import missing symbols (TS)" })
-
-  -- Function to add all missing imports in the file using source code action
-  local function add_all_missing_imports()
-    vim.lsp.buf.code_action({
-      context = {
-        only = { "source.addMissingImports.ts" }
-      },
-      apply = true, -- Auto-applies the code action if only one
-    })
-  end
-
-  vim.keymap.set("n", "<leader>ai", add_all_missing_imports, { desc = "Add all missing imports (TS)" })
 end
 
 -- nvim-cmp capabilities
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-vim.lsp.config('ts_ls', {
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
-vim.lsp.enable('ts_ls')
 
 vim.lsp.config('rust_analyzer', {
   on_attach = on_attach,
@@ -84,3 +55,27 @@ vim.lsp.config('gopls', {
   }
 })
 vim.lsp.enable('gopls')
+
+-- TypeScript configuration using typescript-tools
+vim.lsp.config('typescript-tools', {
+  on_attach = function()
+    vim.keymap.set("n", "gd", "<cmd>TSToolsGoToSourceDefinition<cr>", { buffer = bufnr, desc = "Go to Source Definition" })
+  end,
+  capabilities = capabilities,  -- Your cmp_nvim_lsp capabilities
+  settings = {
+    tsserver = {
+      -- Enable inlay hints
+      inlay_hints = {
+        enabled = true,
+        include_inlay_parameter_name_hints = 'all',
+        include_inlay_parameter_name_hints_when_argument_matches_name = false,
+        include_inlay_function_parameter_type_hints = true,
+        include_inlay_variable_type_hints = true,
+        include_inlay_property_declaration_type_hints = true,
+        include_inlay_function_like_return_type_hints = true,
+        include_inlay_enum_member_value_hints = true,
+      },
+    },
+  },
+})
+vim.lsp.enable('typescript-tools')

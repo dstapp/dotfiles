@@ -50,6 +50,14 @@ return require('packer').startup(function(use)
     -- Snippet collections (optional)
     -- use 'rafamadriz/friendly-snippets'
 
+    use {
+      "pmizio/typescript-tools.nvim",
+      requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+      config = function()
+        require("typescript-tools").setup {}
+      end,
+    }
+
     use({
       'nvim-neo-tree/neo-tree.nvim',
       branch = 'v3.x',
