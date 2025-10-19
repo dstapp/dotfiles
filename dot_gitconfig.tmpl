@@ -1,5 +1,5 @@
 [user]
-  name = David Stapp
+  name = {{ .name | quote }}
   email = {{ .email | quote }}
 
 [color]
@@ -18,19 +18,19 @@
   ai = "add --patch --interactive"
 
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = nvim
-	autocrlf = input
+  excludesfile = ~/.gitignore_global
+  editor = nvim
+  autocrlf = input
 
 [branch]
   sort = -committerdate
 
 [tag]
-  sort = version:refname
+  sort = taggerdate
 
 [push]
-	default = current
-	autoSetupRemote = true
+  default = current
+  autoSetupRemote = true
   followTags = true
 
 [fetch]
@@ -42,11 +42,10 @@
   tool = vimdiff
 
 [pull]
-  #rebase = false
-	rebase = true
+  rebase = true
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [diff]
   algorithm = histogram
@@ -66,3 +65,4 @@
   autoSquash = true
   autoStash = true
   updateRefs = true
+
